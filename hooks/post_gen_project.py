@@ -8,7 +8,8 @@ import subprocess
 ##### CONSTANTS #####
 
 CAF = "{{ cookiecutter.caf }}".strip().lower()
-INIT_GIT = "{{ cookiecutter.init_git}}".strip().lower()
+INIT_GIT = "{{ cookiecutter.init_git }}".strip().lower()
+PUSH_REPO = "{{ cookiecutter.push_repository }}".strip().lower()
 
 
 ##### CLASSES & FUNCTIONS #####
@@ -45,10 +46,16 @@ def init_git():
         ["git", "remote", "add", "origin", "{{ cookiecutter.github_url }}"], check=True
     )
 
-    _underline_print("Pushing to GitHub")
-    subprocess.run(["git", "push", "--set-upstream", "main"], check=True)
+    if PUSH_REPO == "true":
+        _underline_print("Pushing to GitHub")
+        subprocess.run(["git", "push", "--set-upstream", "main"], check=True)
 
     _underline_print("Completed git setup")
+
+
+def _error_msg(msg: str) -> str:
+    error = "-" * 22 + " ERROR " + "-" * 22
+    return f"{error}\n{msg}\n{'-' * len(error)}"
 
 
 def main():
@@ -61,11 +68,19 @@ def main():
             init_git()
         except Exception as exc:
             raise SystemExit(
-                f"\n{'-' * 22} ERROR {'-' * 22}\n"
-                f"Error initialising git repository: {exc}\n"
-                "Try setting init_git to False to use the template"
-                f" without setting up the git repository.\n{'-' * 51}\n"
+                _error_msg(
+                    f"Error initialising git repository: {exc}\n"
+                    "Try setting init_git to False to use the template"
+                    f" without setting up the git repository."
+                )
             ) from exc
+    elif PUSH_REPO == "true":
+        raise SystemExit(
+            _error_msg(
+                "Cannot push repository if init_git is False, either "
+                "enable init_git or disable push_repository."
+            )
+        )
 
 
 if __name__ == "__main__":

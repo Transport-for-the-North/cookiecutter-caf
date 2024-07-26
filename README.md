@@ -1,10 +1,36 @@
 # Cookiecutter-CAF
 
 Cookiecutter template for Transport for the North's packages, this template works for both
-CAF and non-CAF (default) packages. See [Cookiecutter documentation](https://cookiecutter.readthedocs.io/en/stable/index.html)
-for more details.
+CAF and non-CAF (default) packages.
 
 ## Usage
+
+This template is setup to work with Cookiecutter, which will automatically fill in the template
+details provided by the user. See [Cookiecutter documentation](https://cookiecutter.readthedocs.io/en/stable/index.html)
+for more details.
+
+The template can be used with cookiecutter with (see [Cookiecutter Setup](#cookiecutter-setup)
+for installation details):
+
+`cookiecutter gh:Transport-for-the-North/cookiecutter-caf`
+
+Cookiecutter will then ask the user to provide the required parameters and answer the setup
+questions and will then create the repository folder locally and, if enabled, initialise git.
+Git can be initialised manually from the git command-line utility or within GitHub desktop,
+if preferred.
+
+## Cookiecutter Setup
+
+Cookiecutter is a Python package provided with a command-line utility, the recommended way to
+install this is using [pipx](https://pipx.pypa.io/stable/).
+
+To install pipx you will need a version of Python installed on your machine (and accessible
+within the command-prompt), pipx can be installed with `pip install pipx`. Once pipx is installed
+use `pipx ensurepath` to add pipx's executable folder to the PATH variable so anything installed
+is accessible.
+
+Installing cookiecutter with pipx is: `pipx install cookiecutter`. This will install and setup
+the command-line utility so it can be called using the `cookiecutter` command.
 
 ## Cookiecutter Structure
 
@@ -46,8 +72,21 @@ this sets up for you:
 
 ### docs
 
-All docs go in here.
-TODO: Explain how to setup sphinx using `sphinx-quickstart`
+All documentation for the package should go in here, this template provides the basic structure
+for Sphinx documentation and automatically includes API documentation so `sphinx-quickstart` does
+not need running. For more details on using Sphinx see the
+[Sphinx Getting Started documentation](https://www.sphinx-doc.org/en/master/usage/quickstart.html).
+
+This template sets up a basic structure with pages for a user guide and automatic API documentation
+ready for use. Sphinx documentation is made up of plaintext documents written in
+reStructuredText (reST) markup language, with the starting page define in `index.rst` all other
+pages can be linked to from the main table of contents. The Sphinx documentation contains a detailed
+[reStructuredText Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
+which explains how to write rst files.
+
+The documentation is all stored within the `docs/source` folder and can be generated using the make
+batch file with `make html` for web-based documentation. A separate documentation requirements file
+(`docs/requirements.txt`) is provided to list any additional requirements required e.g. sphinx itself.
 
 ### Package folder
 

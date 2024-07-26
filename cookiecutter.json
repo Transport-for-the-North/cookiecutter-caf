@@ -8,6 +8,7 @@
     "github_org": "{{ cookiecutter.author.strip().lower().replace(' ', '-') }}",
     "github_url": "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}",
     "init_git": false,
+    "push_repository": false,
     "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
     "_copy_without_render": [
         ".github/*"
@@ -15,5 +16,16 @@
     "_jinja2_env_vars": {
         "lstrip_blocks": true,
         "trim_blocks": true
+    },
+    "__prompts__": {
+        "project_name": "Name of Package / Project",
+        "caf": "CAF package?",
+        "description": "Brief package description",
+        "author": "Author",
+        "project_slug": "Full Package Name",
+        "github_org": "GitHub Organisation Account",
+        "github_url": "GitHub Source Code URL",
+        "init_git": "Initialise local git repository?",
+        "push_repository": "Push repository to GitHub? An empty GitHub repository must exist."
     }
 }

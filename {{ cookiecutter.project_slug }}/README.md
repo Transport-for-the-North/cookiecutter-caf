@@ -54,3 +54,10 @@ question has already been answered.
 
 Please see [CONTRIBUTING.rst](contributing.rst) for details on contributing to the codebase or
 documentation.
+
+## Documentation
+
+Documentation is created using [Sphinx](https://www.sphinx-doc.org/en/master/index.html) and is hosted online at
+[{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs](https://{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs.io/en/stable/).
+The documentation can be built locally using the provided make batch files, inside the docs folder,
+with `make html`.
