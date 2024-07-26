@@ -1,3 +1,2 @@
 sphinx>=7.4
-sphinx-automodapi>=0.17
 pydata-sphinx-theme>=0.14

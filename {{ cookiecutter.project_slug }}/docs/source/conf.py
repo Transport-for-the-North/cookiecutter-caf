@@ -31,16 +31,13 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
-    "sphinx_automodapi.automodapi",
 ]
 
-templates_path = ["_templates"]
+templates_path = ["_templates", "_templates/autosummary"]
 exclude_patterns = []
 
 
 numpydoc_show_class_members = False
-
-automodapi_inheritance_diagram = False
 
 # Change autodoc settings
 autodoc_member_order = "groupwise"
@@ -57,7 +54,10 @@ autodoc_typehints = "description"
 # Auto summary options
 autosummary_generate = True
 
-modindex_common_prefix = "{{ cookiecutter.project_slug }}"
+modindex_common_prefix = [
+    {% if cookiecutter.caf %}"caf.",{% endif %}
+    "{{ cookiecutter.project_slug }}."
+]
 
 
 # -- Options for HTML output -------------------------------------------------

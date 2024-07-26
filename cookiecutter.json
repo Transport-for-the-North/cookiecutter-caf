@@ -11,7 +11,8 @@
     "push_repository": false,
     "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
     "_copy_without_render": [
-        ".github/*"
+        ".github/*",
+        "docs/source/_templates/autosummary"
     ],
     "_jinja2_env_vars": {
         "lstrip_blocks": true,
