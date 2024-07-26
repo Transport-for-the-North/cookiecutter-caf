@@ -1,0 +1,19 @@
+{
+    "project_name": "Package Name",
+    "caf": false,
+    "description": "Package description",
+    "author": "Transport for the North",
+    "__pkg_name": "{{ cookiecutter.project_name.strip().lower().replace(' ', '_') }}",
+    "project_slug": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.__pkg_name }}",
+    "github_org": "{{ cookiecutter.author.strip().lower().replace(' ', '-') }}",
+    "github_url": "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}",
+    "init_git": false,
+    "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
+    "_copy_without_render": [
+        ".github/*"
+    ],
+    "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+    }
+}
