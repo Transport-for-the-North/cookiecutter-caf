@@ -48,7 +48,7 @@ def init_git():
 
     if PUSH_REPO == "true":
         _underline_print("Pushing to GitHub")
-        subprocess.run(["git", "push", "--set-upstream", "main"], check=True)
+        subprocess.run(["git", "push", "--set-upstream", "origin", "main"], check=True)
 
     _underline_print("Completed git setup")
 
