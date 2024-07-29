@@ -58,7 +58,7 @@ This template sets up a lot of CI/CD (Continuous Integration / Continuous Deploy
 to help manage, update, release, and test a new python package. Here is a list of what
 this sets up for you:
 
-- Automatic and easy to use code linting / analysis which works on your machine via tox, which provides:
+- Automatic and easy to use code linting / analysis which works on your machine, which provides:
   - MyPy type checking
   - Pylint syntax checking
   - PyDocStyle documentation checking
@@ -68,7 +68,7 @@ this sets up for you:
 - GitHub actions which run on all pull requests and pushes to master
   - These run the above tox and black checks and will warn you where code deviates from the standards
 - Automatic code versioning via Git Tags
-- Lays out the package in a consistent format to fit the `CAF` structure.
+- Lays out the package in a consistent format to fit the Python package structure.
 
 ### docs
 
@@ -90,7 +90,7 @@ batch file with `make html` for web-based documentation. A separate documentatio
 
 ### Package folder
 
-The `{{ cookitcutter.__pkg }}` folder will be updated with the package name when running
+The `{{ cookiecutter.__pkg_name }}` folder will be updated with the package name when running
 cookiecutter. All code goes in here. Some files already exist:
 
 - `__init__.py` - this is the entry point for your package and should contain a docstring

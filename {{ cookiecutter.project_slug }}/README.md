@@ -34,6 +34,10 @@
 
 {{ cookiecutter.description }}
 
+{% if cookiecutter.__pkg_name == "{package_name}" %}
+Template usage and information is shown in [Template Usage](#template-usage) section below.
+{% endif %}
+
 {% if cookiecutter.caf %}
 
 ## Common Analytical Framework
@@ -61,3 +65,17 @@ Documentation is created using [Sphinx](https://www.sphinx-doc.org/en/master/ind
 [{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs](https://{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs.io/en/stable/).
 The documentation can be built locally using the provided make batch files, inside the docs folder,
 with `make html`.
+
+{% if cookiecutter.__pkg_name == "{package_name}" %}
+---
+
+## Template Usage
+
+Find all occurrences of "{{ cookiecutter.__pkg_name }}" and replace it with the package name.
+Then remove this section explaining how to use the template and write a description of the
+package above.
+
+{{ cookiecutter._template_details }}
+
+---
+{% endif %}

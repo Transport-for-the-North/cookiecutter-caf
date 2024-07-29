@@ -9,6 +9,7 @@
     "github_url": "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}",
     "init_git": false,
     "push_repository": false,
+    "_template_details": "filled by pre_prompt hook",
     "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
     "_copy_without_render": [
         ".github/*",
