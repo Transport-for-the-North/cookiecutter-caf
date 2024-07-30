@@ -101,7 +101,7 @@ Once MiKTex and Perl are installed you are able to build the PDF from the LaTeX 
 provides a target (latexpdf) which builds the LaTeX files then immediately builds the PDF. When
 running `make latexpdf` MiKTeX may ask for permission to installed some required TeX packages.
 Once the command has finished the PDF will be located at
-[`docs/build/latex/{{ cookiecutter.__pkg_name.replace(".", "") }}.pdf`](docs/build/latex/{{ cookiecutter.__pkg_name.replace(".", "") }}.pdf).
+[`docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf`](docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf).
 
 {% if cookiecutter.__pkg_name == "{package_name}" %}
 ---
