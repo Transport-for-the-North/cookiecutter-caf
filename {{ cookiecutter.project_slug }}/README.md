@@ -3,9 +3,6 @@
 <h1 align="center">{{ cookiecutter.project_slug }}</h1>
 
 <p align="center">
-<a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
-  <img alt="License: GNU GPL v3.0" src="https://img.shields.io/badge/license-GPLv3-blueviolet.svg?style=flat-square">
-</a>
 <a href="https://github.com/psf/black">
   <img alt="code style: black" src="https://img.shields.io/badge/code%20format-black-000000.svg">
 </a>
