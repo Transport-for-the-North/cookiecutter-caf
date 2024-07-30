@@ -13,7 +13,7 @@
   <img alt="Conda" src="https://img.shields.io/conda/v/conda-forge/{{ cookiecutter.project_slug }}?style=flat-square&logo=condaforge">
 </a>
 <a href="https://app.codecov.io/gh/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}">
-  <img alt="Coverage" src="https://img.shields.io/codecov/c/github/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}.svg?branch=master&style=flat-square&logo=CodeCov">
+  <img alt="Coverage" src="https://img.shields.io/codecov/c/github/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}.svg?branch=main&style=flat-square&logo=CodeCov">
 </a>
 <a href="{{ cookiecutter.github_url }}/actions?query=event%3Apush">
   <img alt="Testing Badge" src="https://img.shields.io/github/actions/workflow/status/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}/tests.yml?style=flat-square&logo=GitHub&label=Tests">

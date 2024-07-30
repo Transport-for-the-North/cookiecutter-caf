@@ -65,7 +65,7 @@ this sets up for you:
   - Test running via pytest
 - Setup for [Black](https://github.com/psf/black) code formatter
   - This can be run with `black src` or `black tests` from the root of this repo
-- GitHub actions which run on all pull requests and pushes to master
+- GitHub actions which run on all pull requests and pushes to main
   - These run the above tox and black checks and will warn you where code deviates from the standards
 - Automatic code versioning via Git Tags
 - Lays out the package in a consistent format to fit the Python package structure.
