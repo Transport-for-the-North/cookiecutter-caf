@@ -79,3 +79,7 @@ package above.
 
 ---
 {% endif %}
+
+## Credit
+
+This project was created using the Common Analytical Framework cookiecutter template found here: https://github.com/Transport-for-the-North/cookiecutter-caf
