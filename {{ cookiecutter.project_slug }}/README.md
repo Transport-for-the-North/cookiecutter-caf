@@ -41,6 +41,12 @@ which is a collaboration between transport bodies in the UK to develop and maint
 transport analytics and appraisal tools.
 {% endif %}
 
+## Maintainers
+
+{% for maintainer in cookiecutter.project_maintainers.split(";") %}
+- {{ maintainer|trim }}
+{% endfor %}
+
 ## Contributing
 
 {{ cookiecutter.project_slug }} happily accepts contributions.
