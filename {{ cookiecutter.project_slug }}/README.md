@@ -13,7 +13,7 @@
   <img alt="Conda" src="https://img.shields.io/conda/v/conda-forge/{{ cookiecutter.project_slug }}?style=flat-square&logo=condaforge">
 </a>
 <a href="https://app.codecov.io/gh/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}">
-  <img alt="Coverage" src="https://img.shields.io/codecov/c/github/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}.svg?branch=master&style=flat-square&logo=CodeCov">
+  <img alt="Coverage" src="https://img.shields.io/codecov/c/github/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}.svg?branch=main&style=flat-square&logo=CodeCov">
 </a>
 <a href="{{ cookiecutter.github_url }}/actions?query=event%3Apush">
   <img alt="Testing Badge" src="https://img.shields.io/github/actions/workflow/status/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}/tests.yml?style=flat-square&logo=GitHub&label=Tests">
@@ -41,6 +41,12 @@ which is a collaboration between transport bodies in the UK to develop and maint
 transport analytics and appraisal tools.
 {% endif %}
 
+## Maintainers
+
+{% for maintainer in cookiecutter.project_maintainers.split(";") %}
+- {{ maintainer|trim }}
+{% endfor %}
+
 ## Contributing
 
 {{ cookiecutter.project_slug }} happily accepts contributions.
@@ -57,8 +63,45 @@ documentation.
 
 Documentation is created using [Sphinx](https://www.sphinx-doc.org/en/master/index.html) and is hosted online at
 [{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs](https://{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs.io/en/stable/).
-The documentation can be built locally using the provided make batch files, inside the docs folder,
-with `make html`.
+
+The documentation can be built locally once all the docs requirements
+([`docs/requirements.txt`](docs/requirements.txt)) are installed into your Python environment.
+
+The provided make batch file, (inside the docs folder), allow for building the documentation in
+various target formats. The command for building the documentation is `make {target}`
+(called from within docs/), where `{target}` is the type of documentation format to build. A full
+list of all available target formats can be seen by running the `make` command without any
+arguments but the two most common are detailed below.
+
+### HTML
+
+The HTML documentation (seen on Read the Docs) can be built using the `make html` command, this
+will build the web-based documentation and provide an index.html file as the homepage,
+[`docs/build/html/index.html`](docs/build/html/index.html).
+
+### PDF
+
+The PDF documentation has some other requirements before it can be built as Sphinx will first
+build a [LaTeX](https://www.latex-project.org/) version of the documentation and then use an
+installed TeX distribution to build the PDF from those. If you already have a TeX distribution
+setup then you can build the PDF with `make latexpdf`, otherwise follow the instructions below.
+
+Installing LaTeX on Windows is best done using [MiKTeX](https://miktex.org/), as this provides a
+simple way of handling any additional TeX packages. Details of other operating systems and TeX
+distributions can be found on the [Getting LaTeX](https://www.latex-project.org/get/) page on
+LaTeX's website.
+
+MiKTeX provides an installer on its website [miktex.org/download](https://miktex.org/download),
+which will run through the process of getting it installed and setup. In addition to MiKTeX
+the specific process Sphinx uses for building PDFs is [Latexmk](https://mg.readthedocs.io/latexmk.html),
+which is a Perl script and so requires Perl to be installed on your machine, this can be done with an
+installer provided by [Strawberry Perl](https://strawberryperl.com/).
+
+Once MiKTex and Perl are installed you are able to build the PDF from the LaTeX files, Sphinx
+provides a target (latexpdf) which builds the LaTeX files then immediately builds the PDF. When
+running `make latexpdf` MiKTeX may ask for permission to installed some required TeX packages.
+Once the command has finished the PDF will be located at
+[`docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf`](docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf).
 
 {% if cookiecutter.__pkg_name == "{package_name}" %}
 ---

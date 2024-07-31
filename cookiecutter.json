@@ -1,5 +1,6 @@
 {
     "project_name": "Package Name",
+    "project_maintainers": "name <GitHub Username>; name <GitHub Username>",
     "caf": false,
     "description": "Package description",
     "author": "Transport for the North",
@@ -21,6 +22,7 @@
     },
     "__prompts__": {
         "project_name": "Name of Package / Project",
+        "project_maintainers": "Name(s) and GitHub Usernames, of Project Maintainers",
         "caf": "CAF package?",
         "description": "Brief package description",
         "author": "Author",

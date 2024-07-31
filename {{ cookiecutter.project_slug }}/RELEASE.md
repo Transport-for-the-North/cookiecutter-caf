@@ -11,7 +11,7 @@ Given a version number MAJOR.MINOR.PATCH (e.g. 1.0.0), increment the:
 - PATCH version when you make backwards compatible bug fixes.
 
 Note that the main branch of this repository contains a work in progress, and  may **not**
-contain a stable version of the codebase. We aim to keep the master branch stable, but for the
+contain a stable version of the codebase. We aim to keep the main branch stable, but for the
 most stable versions, please see the
 [releases]({{ cookiecutter.github_url }}/releases)
 page on GitHub. A log of all patches made between versions can also be found
