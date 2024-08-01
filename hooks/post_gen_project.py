@@ -25,7 +25,7 @@ def caf_setup():
     caf_dir = pathlib.Path("src/caf")
     caf_dir.mkdir()
 
-    project_dir = pathlib.Path("src/{{ cookiecutter.__pkg_name }}")
+    project_dir = pathlib.Path("src/{{ cookiecutter.package_name }}")
     project_dir.rename(caf_dir / project_dir.name)
     print("Done CAF setup")
 

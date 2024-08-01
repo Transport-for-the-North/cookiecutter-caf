@@ -1,6 +1,6 @@
 ![Transport for the North Logo]({{ cookiecutter.github_url }}/blob/main/docs/TFN_Landscape_Colour_CMYK.png)
 
-<h1 align="center">{{ cookiecutter.project_slug }}</h1>
+<h1 align="center">{{ cookiecutter.__readable_name }}</h1>
 
 <p align="center">
 <a href="https://pypi.org/project/{{ cookiecutter.project_slug }}/">
@@ -28,7 +28,7 @@
 
 {{ cookiecutter.description }}
 
-{% if cookiecutter.__pkg_name == "{package_name}" %}
+{% if cookiecutter.package_name == "package_name" %}
 Template usage and information is shown in [Template Usage](#template-usage) section below.
 {% endif %}
 
@@ -49,10 +49,10 @@ transport analytics and appraisal tools.
 
 ## Contributing
 
-{{ cookiecutter.project_slug }} happily accepts contributions.
+{{ cookiecutter.__readable_name }} happily accepts contributions.
 
 The best way to contribute to this project is to go to the [issues tab]({{ cookiecutter.github_url}}/issues)
-and report bugs or submit a feature request. This helps {{ cookiecutter.project_slug }} become more
+and report bugs or submit a feature request. This helps {{ cookiecutter.__readable_name }} become more
 stable and full-featured. Please check the closed bugs before submitting a bug report to see if your
 question has already been answered.
 
@@ -103,12 +103,12 @@ running `make latexpdf` MiKTeX may ask for permission to installed some required
 Once the command has finished the PDF will be located at
 [`docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf`](docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf).
 
-{% if cookiecutter.__pkg_name == "{package_name}" %}
+{% if cookiecutter.package_name == "package_name" %}
 ---
 
 ## Template Usage
 
-Find all occurrences of "{{ cookiecutter.__pkg_name }}" and replace it with the package name.
+Find all occurrences of "{{ cookiecutter.package_name }}" and replace it with the package name.
 Then remove this section explaining how to use the template and write a description of the
 package above.
 
@@ -119,4 +119,5 @@ package above.
 
 ## Credit
 
-This project was created using the Common Analytical Framework cookiecutter template found here: https://github.com/Transport-for-the-North/cookiecutter-caf
+This project was created using the Common Analytical Framework cookiecutter template found here:
+<https://github.com/Transport-for-the-North/cookiecutter-caf>

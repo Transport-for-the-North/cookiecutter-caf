@@ -90,7 +90,7 @@ batch file with `make html` for web-based documentation. A separate documentatio
 
 ### Package folder
 
-The `{{ cookiecutter.__pkg_name }}` folder will be updated with the package name when running
+The `{{ cookiecutter.__pkg_folder }}` folder will be updated with the package name when running
 cookiecutter. All code goes in here. Some files already exist:
 
 - `__init__.py` - this is the entry point for your package and should contain a docstring
