@@ -1,6 +1,6 @@
 {
     "project_name": "Package Name",
-    "project_maintainers": "name <GitHub Username>; name <GitHub Username>",
+    "project_maintainers": "name (GitHub Username); name (GitHub Username)",
     "caf": false,
     "description": "Package description",
     "author": "Transport for the North",
