@@ -1,17 +1,18 @@
 {
     "project_name": "Package Name",
-    "project_maintainers": "name <GitHub Username>; name <GitHub Username>",
     "caf": false,
-    "description": "Package description",
+    "__readable_name": "{% if cookiecutter.caf %}CAF {% endif %}{{ cookiecutter.project_name }}",
+    "package_name": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.project_name|pkg_name }}",
+    "project_slug": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.project_name|repo_name }}",
     "author": "Transport for the North",
-    "__pkg_name": "{{ cookiecutter.project_name.strip().lower().replace(' ', '_') }}",
-    "project_slug": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.__pkg_name }}",
-    "github_org": "{{ cookiecutter.author.strip().lower().replace(' ', '-') }}",
+    "github_org": "{{ cookiecutter.author|repo_name }}",
     "github_url": "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}",
+    "project_maintainers": "name (GitHub Username); name (GitHub Username)",
+    "description": "Package description",
     "init_git": false,
     "push_repository": false,
     "_template_details": "filled by pre_prompt hook",
-    "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
+    "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.package_name }}",
     "_copy_without_render": [
         ".github/*",
         "docs/source/_templates/autosummary"
@@ -20,13 +21,18 @@
         "lstrip_blocks": true,
         "trim_blocks": true
     },
+    "_extensions": [
+        "local_extensions.pkg_name",
+        "local_extensions.repo_name"
+    ],
     "__prompts__": {
-        "project_name": "Name of Package / Project",
+        "project_name": "Human-Readable Project Name",
         "project_maintainers": "Name(s) and GitHub Usernames, of Project Maintainers",
         "caf": "CAF package?",
         "description": "Brief package description",
         "author": "Author",
-        "project_slug": "Full Package Name",
+        "package_name": "Full Package Name",
+        "project_slug": "Full Repository Name",
         "github_org": "GitHub Organisation Account",
         "github_url": "GitHub Source Code URL",
         "init_git": "Initialise local git repository?",
