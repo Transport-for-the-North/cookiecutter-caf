@@ -47,4 +47,4 @@ jobs:
       - name: Import
         run: |
           cd ..
-          python -c "import {{ cookiecutter.__pkg_name }; {{ cookiecutter.__pkg_name }.__version__;"
+          python -c "import {{ cookiecutter.package_name }}; {{ cookiecutter.package_name }}.__version__;"
