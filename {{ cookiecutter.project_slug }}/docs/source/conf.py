@@ -57,7 +57,7 @@ autodoc_typehints = "description"
 # Auto summary options
 autosummary_generate = True
 
-modindex_common_prefix = [{% if cookiecutter.caf %}"caf.",{% endif %} "{{ cookiecutter.package_name }}."]
+modindex_common_prefix = [{% if cookiecutter.caf %}"caf.", {% endif %}"{{ cookiecutter.package_name }}."]
 
 
 # -- Options for HTML output -------------------------------------------------
