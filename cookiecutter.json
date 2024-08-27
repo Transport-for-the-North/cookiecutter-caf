@@ -12,7 +12,7 @@
     "init_git": false,
     "push_repository": false,
     "_template_details": "filled by pre_prompt hook",
-    "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.package_name }}",
+    "__pkg_folder": "{{ cookiecutter.package_name.replace('.', '/') }}",
     "_copy_without_render": [
         ".github/*",
         "docs/source/_templates/autosummary"
