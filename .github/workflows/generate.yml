@@ -1,0 +1,87 @@
+name: Generate Template & Test
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    name: Generate Template & Test
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          python-version: ["3.10", "3.11", "3.12"]
+          project_folder: ["caf.example", "example"]
+
+    env:
+      CAF: ${{ matrix.project_folder == 'caf.example' }}
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        path: 'cookiecutter-caf'
+
+    - name: Generate Project ${{ matrix.project_folder }}
+      uses: andrewthetechie/gha-cookiecutter@main
+      with:
+        template: 'cookiecutter-caf'
+        cookiecutterValues: '{
+            "caf": ${{ env.CAF }},
+            "project_name": "example"
+          }'
+
+    - name: Display Generated Project
+      run: tree ${{ matrix.project_folder }}
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Python Dependencies
+      run: |
+        cd ${{ matrix.project_folder }}
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements_dev.txt
+
+    - name: Check Formatting with Black
+      run: |
+        cd ${{ matrix.project_folder }}
+        black src
+
+    - name: Check Import Formatting (isort)
+      run: |
+        cd ${{ matrix.project_folder }}
+        isort src
+
+    - name: Lint with PyLint
+      run: |
+        cd ${{ matrix.project_folder }}
+        pylint src
+
+    - name: Lint with MyPy
+      run: |
+        cd ${{ matrix.project_folder }}
+        mypy src
+
+    - name: Lint with PyDocStyle
+      run: |
+        cd ${{ matrix.project_folder }}
+        pydocstyle src
+
+    - name: Create Dummy PKG-INFO for Versioningit
+      run: |
+        sudo chown -R $USER:$USER ${{ matrix.project_folder }}
+        cd ${{ matrix.project_folder }}
+        sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
+        cat PKG-INFO
+
+    - name: Check HTML Documentation Builds (sphinx)
+      run: |
+        cd ${{ matrix.project_folder }}/docs
+        pip install -r requirements.txt
+        sphinx-build source build/html -b html
