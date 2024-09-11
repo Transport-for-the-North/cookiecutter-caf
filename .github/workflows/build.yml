@@ -9,4 +9,7 @@ jobs:
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
-        template: ../cookiecutter-caf
+        template: ${{ GITHUB_SERVER_URL }}/${{ GITHUB_REPOSITORY }}
+        templateCheckout: ${{ GITHUB_REF_NAME }}
+    - name: List files / folders
+      run: ls -a
