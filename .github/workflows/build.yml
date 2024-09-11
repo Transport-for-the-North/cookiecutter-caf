@@ -4,13 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: List files / folders
       run: ls -a
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
-        template: gh:${{ github.repository }}
-        templateCheckout: ${{ github.base_ref }}
+        template: ./cookiecutter-caf
         cookiecutterValues: '{
             "caf": true
         }'
