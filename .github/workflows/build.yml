@@ -7,4 +7,4 @@ jobs:
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
-        template: ./cookiecutter-caf
+        template: ../cookiecutter-caf
