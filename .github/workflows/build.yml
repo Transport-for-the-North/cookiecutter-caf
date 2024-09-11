@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: List files / folders
+      run: ls -a
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
