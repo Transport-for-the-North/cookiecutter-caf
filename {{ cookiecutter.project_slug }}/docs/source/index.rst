@@ -27,6 +27,7 @@ transport analytics and appraisal tools.
 
    user_guide
    api
+   examples/index
 
 
 Indices and tables
