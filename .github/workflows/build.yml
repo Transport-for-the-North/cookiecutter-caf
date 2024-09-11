@@ -9,7 +9,10 @@ jobs:
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
-        template: ${{ github.repositoryUrl }}
+        template: gh:${{ github.repository }}
         templateCheckout: ${{ github.base_ref }}
+        cookiecutterValues: '{
+            "caf": true
+        }'
     - name: List files / folders
       run: ls -a
