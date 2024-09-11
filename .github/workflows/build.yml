@@ -4,16 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: List files / folders
-      run: ls -a
+    - name: Checkout PR
+      uses: actions/checkout@v3
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
         template: .
         cookiecutterValues: '{
             "caf": true,
-            "project_name": "test",
+            "project_name": "test"
         }'
     - name: Display Template Tree
       run: tree caf.test
