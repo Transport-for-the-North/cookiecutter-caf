@@ -14,7 +14,7 @@
     "__pkg_folder": "{% if cookiecutter.caf %}caf/{% endif %}{{ cookiecutter.__pkg_name }}",
     "_copy_without_render": [
         ".github/workflows/linting.yml",
-        ".github/workflows/test.yml",
+        ".github/workflows/tests.yml",
         "docs/source/_templates/autosummary"
     ],
     "_jinja2_env_vars": {
