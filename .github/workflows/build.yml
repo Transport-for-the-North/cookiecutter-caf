@@ -12,7 +12,8 @@ jobs:
       with:
         template: .
         cookiecutterValues: '{
-            "caf": true
+            "caf": true,
+            "project_name": "test",
         }'
-    - name: List files / folders
-      run: ls -a
+    - name: Display Template Tree
+      run: tree caf.test
