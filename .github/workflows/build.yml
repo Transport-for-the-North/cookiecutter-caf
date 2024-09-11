@@ -6,6 +6,7 @@ jobs:
     steps:
     - name: Checkout PR
       uses: actions/checkout@v3
+
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
@@ -14,5 +15,38 @@ jobs:
             "caf": true,
             "project_name": "test"
         }'
+
     - name: Display Template Tree
       run: tree caf.test
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements_dev.txt
+
+    - name: Formatting with Black
+      run: black src
+
+    - name: Import Formatting (isort)
+      run: isort src
+
+    - name: Lint with PyLint
+      run: pylint src
+
+    - name: Lint with MyPy
+      run: mypy src
+
+    - name: Lint with PyDocStyle
+      run: pydocstyle src
+
+    - name: Build Sphinx Docs
+      run: |
+        cd docs
+        pip install -r requirements.txt
+        make html
