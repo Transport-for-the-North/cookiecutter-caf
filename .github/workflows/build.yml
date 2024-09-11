@@ -13,7 +13,8 @@ jobs:
         template: .
         cookiecutterValues: '{
             "caf": true,
-            "project_name": "test"
+            "project_name": "test",
+            "init_git": true
         }'
 
     - name: Display Template Tree
