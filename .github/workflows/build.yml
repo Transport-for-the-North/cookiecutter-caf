@@ -1,0 +1,10 @@
+name: Build Template
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Cookiecutter
+      uses: andrewthetechie/gha-cookiecutter@main
+      with:
+        template: .
