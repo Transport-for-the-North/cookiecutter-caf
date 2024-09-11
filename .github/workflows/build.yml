@@ -56,8 +56,8 @@ jobs:
         cd caf.test
         pydocstyle src
 
-    - name: Build Sphinx Docs
+    - name: Build Sphinx HTML Docs
       run: |
         cd caf.test/docs
         pip install -r requirements.txt
-        make html
+        sphinx-build source build/html -b html
