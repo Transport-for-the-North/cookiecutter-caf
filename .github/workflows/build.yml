@@ -32,22 +32,32 @@ jobs:
         pip install -r requirements_dev.txt
 
     - name: Formatting with Black
-      run: black src
+      run: |
+        cd caf.test
+        black src
 
     - name: Import Formatting (isort)
-      run: isort src
+      run: |
+        cd caf.test
+        isort src
 
     - name: Lint with PyLint
-      run: pylint src
+      run: |
+        cd caf.test
+        pylint src
 
     - name: Lint with MyPy
-      run: mypy src
+      run: |
+        cd caf.test
+        mypy src
 
     - name: Lint with PyDocStyle
-      run: pydocstyle src
+      run: |
+        cd caf.test
+        pydocstyle src
 
     - name: Build Sphinx Docs
       run: |
-        cd docs
+        cd caf.test/docs
         pip install -r requirements.txt
         make html
