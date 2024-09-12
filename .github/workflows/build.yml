@@ -65,7 +65,7 @@ jobs:
         sudo touch PKG-INFO
         ls -l
         echo Done touch
-        sudo echo "Metadata-Version: 1.1" >> PKG-INFO
+        sudo echo "Metadata-Version: 1.1" > test.txt
         echo Done metadat
         sudo echo "Version: 0.1.0" >> PKG-INFO
         echo done version
