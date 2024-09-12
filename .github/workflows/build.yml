@@ -60,14 +60,8 @@ jobs:
 
     - name: Create Dummy PKG-INFO
       run: |
-        sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
-        ls -l
-
-    - name: Create Dummy PKG-INFO
-      run: |
-        sudo chown $USER:$USER caf.test
+        sudo chown -R $USER:$USER caf.test
         cd caf.test
-        ls -l
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
 
