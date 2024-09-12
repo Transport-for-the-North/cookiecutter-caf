@@ -63,6 +63,7 @@ jobs:
         cd caf.test
         echo done cd
         sudo touch PKG-INFO
+        ls -l
         echo Done touch
         sudo echo "Metadata-Version: 1.1" >> PKG-INFO
         echo Done metadat
