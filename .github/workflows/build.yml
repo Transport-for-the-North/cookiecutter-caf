@@ -60,12 +60,12 @@ jobs:
       run: |
         cd caf.test
         ls -a
-        touch "PKG-INFO"
-        echo 'Metadata-Version: 1.1' >> "PKG-INFO"
-        echo 'Version: 0.1.0' >> "PKG-INFO"
+        touch PKG-INFO
+        echo Metadata-Version: 1.1 >> PKG-INFO
+        echo Version: 0.1.0 >> PKG-INFO
         echo Done making PKG-INFO
         ls -a
-        cat "PKG-INFO"
+        cat PKG-INFO
 
     - name: Build Sphinx HTML Docs
       run: |
