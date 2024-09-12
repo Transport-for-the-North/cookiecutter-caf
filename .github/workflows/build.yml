@@ -60,7 +60,8 @@ jobs:
       run: |
         cd caf.test
         ls -a
-        echo 'Metadata-Version: 1.1' > "PKG-INFO"
+        touch "PKG-INFO"
+        echo 'Metadata-Version: 1.1' >> "PKG-INFO"
         echo 'Version: 0.1.0' >> "PKG-INFO"
         echo Done making PKG-INFO
         ls -a
