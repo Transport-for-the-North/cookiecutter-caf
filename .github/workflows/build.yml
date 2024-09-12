@@ -58,6 +58,7 @@ jobs:
 
     - name: Creating Dummy PKG-INFO
       run: |
+        cd caf.test
         echo 'Metadata-Version: 1.1' > "PKG-INFO"
         echo 'Version: 0.1.0' >> "PKG-INFO"
         cat "PKG-INFO"
