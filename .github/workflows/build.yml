@@ -58,18 +58,11 @@ jobs:
         cd caf.test
         pydocstyle src
 
-    - name: Dummy File Test
-      run: sudo touch caf.test/test.txt
-
     - name: Create Dummy PKG-INFO
-      uses: 1arp/create-a-file-action@0.4.5
-      with:
-        path: 'caf.test'
-        isAbsolutePath: false
-        file: 'PKG-INFO'
-        content: |
-          Metadata-Version: 1.1
-          Version: 0.1.0
+      run: |
+        cd caf.test
+        sudo echo Metadata-Version: 1.1 > PKG-INFO
+        sudo echo Version: 0.1.0 >> PKG-INFO
 
     - name: Build Sphinx HTML Docs
       run: |
