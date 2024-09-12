@@ -11,13 +11,14 @@ jobs:
       uses: andrewthetechie/gha-cookiecutter@main
       with:
         template: .
+        outputDir: ../
         cookiecutterValues: '{
             "caf": true,
             "project_name": "test"
           }'
 
     - name: Display Template Tree
-      run: tree caf.test
+      run: tree ..
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
