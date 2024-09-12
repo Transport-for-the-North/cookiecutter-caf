@@ -12,10 +12,10 @@ jobs:
       with:
         template: .
         outputDir: ..
-        cookiecutterValues: '{
-            "caf": true,
-            "project_name": "test"
-          }'
+        # cookiecutterValues: '{
+        #     "caf": true,
+        #     "project_name": "test"
+        #   }'
 
     - name: Check Files / Folders
       run: |
