@@ -56,6 +56,12 @@ jobs:
         cd caf.test
         pydocstyle src
 
+    - name: Creating Dummy PKG-INFO
+      run: |
+        echo 'Metadata-Version: 1.1' > "PKG-INFO"
+        echo 'Version: 0.1.0' >> "PKG-INFO"
+        cat "PKG-INFO"
+
     - name: Build Sphinx HTML Docs
       run: |
         cd caf.test/docs
