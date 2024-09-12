@@ -7,11 +7,6 @@ jobs:
     - name: Checkout PR
       uses: actions/checkout@v3
 
-    - name: Setup Dummy Git Config
-      run: |
-        git config --global user.email "dummy@example.com"
-        git config --global user.name "Dummy"
-
     - name: Run Cookiecutter
       uses: andrewthetechie/gha-cookiecutter@main
       with:
@@ -19,8 +14,7 @@ jobs:
         outputDir: ..
         cookiecutterValues: '{
             "caf": true,
-            "project_name": "test",
-            "init_git": true
+            "project_name": "test"
         }'
 
     - name: Display Template Tree
@@ -62,6 +56,12 @@ jobs:
       run: |
         cd ../caf.test
         pydocstyle src
+
+    - name: Setup PKG-INFO
+      run: |
+        cd ../caf.test
+        echo '0.1.0' > "PKG-INFO"
+        ls -a
 
     - name: Build Sphinx HTML Docs
       run: |
