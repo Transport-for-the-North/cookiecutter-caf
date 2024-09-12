@@ -11,20 +11,13 @@ jobs:
       uses: andrewthetechie/gha-cookiecutter@main
       with:
         template: .
-        outputDir: ..
-        # cookiecutterValues: '{
-        #     "caf": true,
-        #     "project_name": "test"
-        #   }'
-
-    - name: Check Files / Folders
-      run: |
-        ls -a
-        ls -a ..
-        tree ..
+        cookiecutterValues: '{
+            "caf": true,
+            "project_name": "test"
+          }'
 
     - name: Display Template Tree
-      run: tree ../caf.test
+      run: tree caf.test
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
@@ -33,44 +26,38 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ../caf.test
+        cd caf.test
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
 
     - name: Formatting with Black
       run: |
-        cd ../caf.test
+        cd caf.test
         black src
 
     - name: Import Formatting (isort)
       run: |
-        cd ../caf.test
+        cd caf.test
         isort src
 
     - name: Lint with PyLint
       run: |
-        cd ../caf.test
+        cd caf.test
         pylint src
 
     - name: Lint with MyPy
       run: |
-        cd ../caf.test
+        cd caf.test
         mypy src
 
     - name: Lint with PyDocStyle
       run: |
-        cd ../caf.test
+        cd caf.test
         pydocstyle src
-
-    - name: Setup PKG-INFO
-      run: |
-        cd ../caf.test
-        echo '0.1.0' > "PKG-INFO"
-        ls -a
 
     - name: Build Sphinx HTML Docs
       run: |
-        cd ../caf.test/docs
+        cd caf.test/docs
         pip install -r requirements.txt
         sphinx-build source build/html -b html
