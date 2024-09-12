@@ -18,7 +18,10 @@ jobs:
           }'
 
     - name: Check Files / Folders
-      run: ls -a
+      run: |
+        ls -a
+        ls -a ..
+        tree ..
 
     - name: Display Template Tree
       run: tree ../caf.test
