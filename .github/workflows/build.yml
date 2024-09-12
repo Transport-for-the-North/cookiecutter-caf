@@ -17,6 +17,9 @@ jobs:
             "project_name": "test"
           }'
 
+    - name: Check Files / Folders
+      run: ls -a
+
     - name: Display Template Tree
       run: tree ../caf.test
 
