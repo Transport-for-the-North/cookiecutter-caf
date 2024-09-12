@@ -15,7 +15,7 @@ jobs:
         cookiecutterValues: '{
             "caf": true,
             "project_name": "test"
-        }'
+          }'
 
     - name: Display Template Tree
       run: tree ../caf.test
