@@ -59,7 +59,7 @@ jobs:
     - name: Creating Dummy PKG-INFO
       run: |
         cd caf.test
-        touch 'PKG-INFO'
+        touch PKG-INFO
         echo Metadata-Version: 1.1 >> PKG-INFO
         echo Version: 0.1.0 >> PKG-INFO
         echo Done making PKG-INFO
