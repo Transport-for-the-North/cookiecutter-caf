@@ -61,8 +61,13 @@ jobs:
     - name: Create Dummy PKG-INFO
       run: |
         cd caf.test
-        sudo echo Metadata-Version: 1.1 > PKG-INFO
+        sudo touch test
+        ls -a
+        sudo touch PKG-INFO
+        ls -a
+        sudo echo Metadata-Version: 1.1 >> PKG-INFO
         sudo echo Version: 0.1.0 >> PKG-INFO
+        cat PKG-INFO
 
     - name: Build Sphinx HTML Docs
       run: |
