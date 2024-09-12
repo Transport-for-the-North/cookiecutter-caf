@@ -60,7 +60,9 @@ jobs:
 
     - name: Create Dummy PKG-INFO
       run: |
+        ls -l  
         cd caf.test
+        ls - l
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
 
