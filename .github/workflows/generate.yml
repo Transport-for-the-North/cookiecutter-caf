@@ -29,8 +29,8 @@ jobs:
             "project_name": "test"
           }'
 
-    - name: Display Repo & Template Tree
-      run: tree .
+    - name: Display Generate Project
+      run: tree caf.test
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
