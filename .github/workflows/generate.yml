@@ -1,15 +1,26 @@
-name: Build Template
-on: [workflow_dispatch, pull_request]
+name: Generate Template & Test
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  generate:
+    name: Generate Template & Test
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          python-version: ["3.10", "3.11", "3.12"]
+
     steps:
-    - name: Checkout PR
+    - name: Checkout Repo
       uses: actions/checkout@v3
       with:
         path: 'cookiecutter-caf'
 
-    - name: Run Cookiecutter
+    - name: Generate Project CAF.test
       uses: andrewthetechie/gha-cookiecutter@main
       with:
         template: 'cookiecutter-caf'
@@ -21,24 +32,24 @@ jobs:
     - name: Display Repo & Template Tree
       run: tree .
 
-    - name: Set up Python 3.11
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
-        python-version: 3.11
+        python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
+    - name: Install Python Dependencies
       run: |
         cd caf.test
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
 
-    - name: Formatting with Black
+    - name: Check Formatting with Black
       run: |
         cd caf.test
         black src
 
-    - name: Import Formatting (isort)
+    - name: Check Import Formatting (isort)
       run: |
         cd caf.test
         isort src
@@ -58,14 +69,14 @@ jobs:
         cd caf.test
         pydocstyle src
 
-    - name: Create Dummy PKG-INFO
+    - name: Create Dummy PKG-INFO for Versioningit
       run: |
         sudo chown -R $USER:$USER caf.test
         cd caf.test
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
 
-    - name: Build Sphinx HTML Docs
+    - name: Check HTML Documentation Builds (sphinx)
       run: |
         cd caf.test/docs
         pip install -r requirements.txt
