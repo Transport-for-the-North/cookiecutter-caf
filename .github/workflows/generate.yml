@@ -13,6 +13,7 @@ jobs:
     strategy:
         matrix:
           python-version: ["3.10", "3.11", "3.12"]
+          project: ["caf.test", "test"]
 
     steps:
     - name: Checkout Repo
@@ -20,17 +21,17 @@ jobs:
       with:
         path: 'cookiecutter-caf'
 
-    - name: Generate Project CAF.test
+    - name: Generate Project ${{ matrix.project }}
       uses: andrewthetechie/gha-cookiecutter@main
       with:
         template: 'cookiecutter-caf'
         cookiecutterValues: '{
-            "caf": true,
+            "caf": ${{ matrix.project == "caf.test" }},
             "project_name": "test"
           }'
 
-    - name: Display Generate Project
-      run: tree caf.test
+    - name: Display Generated Project
+      run: tree ${{ matrix.project }}
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -39,45 +40,45 @@ jobs:
 
     - name: Install Python Dependencies
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
 
     - name: Check Formatting with Black
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         black src
 
     - name: Check Import Formatting (isort)
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         isort src
 
     - name: Lint with PyLint
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         pylint src
 
     - name: Lint with MyPy
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         mypy src
 
     - name: Lint with PyDocStyle
       run: |
-        cd caf.test
+        cd ${{ matrix.project }}
         pydocstyle src
 
     - name: Create Dummy PKG-INFO for Versioningit
       run: |
-        sudo chown -R $USER:$USER caf.test
-        cd caf.test
+        sudo chown -R $USER:$USER ${{ matrix.project }}
+        cd ${{ matrix.project }}
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
 
     - name: Check HTML Documentation Builds (sphinx)
       run: |
-        cd caf.test/docs
+        cd ${{ matrix.project }}/docs
         pip install -r requirements.txt
         sphinx-build source build/html -b html
