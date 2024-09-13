@@ -13,10 +13,10 @@ jobs:
     strategy:
         matrix:
           python-version: ["3.10", "3.11", "3.12"]
-          project: ["caf.test", "test"]
+          project: ["caf.example", "example"]
 
     env:
-      CAF: ${{ matrix.project == 'caf.test' }}
+      CAF: ${{ matrix.project == 'caf.example' }}
 
     steps:
     - name: Checkout Repo
@@ -30,7 +30,7 @@ jobs:
         template: 'cookiecutter-caf'
         cookiecutterValues: '{
             "caf": ${{ env.CAF }},
-            "project_name": "test"
+            "project_name": "example"
           }'
 
     - name: Display Generated Project
