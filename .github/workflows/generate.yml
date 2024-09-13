@@ -15,6 +15,9 @@ jobs:
           python-version: ["3.10", "3.11", "3.12"]
           project: ["caf.test", "test"]
 
+    env:
+      CAF: ${{ matrix.project == 'caf.test' }}
+
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -26,7 +29,7 @@ jobs:
       with:
         template: 'cookiecutter-caf'
         cookiecutterValues: '{
-            "caf": ${{ matrix.project == "caf.test" }},
+            "caf": ${{ env.CAF }},
             "project_name": "test"
           }'
 
