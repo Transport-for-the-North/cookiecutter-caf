@@ -18,11 +18,6 @@ jobs:
     env:
       CAF: ${{ matrix.project_folder == 'caf.example' }}
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./scripts
-
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -48,47 +43,40 @@ jobs:
 
     - name: Install Python Dependencies
       run: |
-        cd ${{ matrix.project_folder }}
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Check Formatting with Black
-      uses: psf/black@stable
-      with:
-        src: src
-        use_pyproject: true
+      run: black src
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Check Import Formatting (isort)
-      uses: isort/isort-action@master
-      with:
-        requirementsFiles: requirements.txt requirements_dev.txt
-        sortPaths: src
+      run: isort src
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyLint
-      run: |
-        cd ${{ matrix.project_folder }}
-        pylint src
+      run: pylint src
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with MyPy
-      run: |
-        cd ${{ matrix.project_folder }}
-        mypy src
+      run: mypy src
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyDocStyle
-      run: |
-        cd ${{ matrix.project_folder }}
-        pydocstyle src
+      run: pydocstyle src
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Create Dummy PKG-INFO for Versioningit
       run: |
         sudo chown -R $USER:$USER ${{ matrix.project_folder }}
-        cd ${{ matrix.project_folder }}
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Check HTML Documentation Builds (sphinx)
       run: |
-        cd ${{ matrix.project_folder }}/docs
         pip install -r requirements.txt
         sphinx-build source build/html -b html
+      working-directory: ${{ matrix.project_folder }}/docs
