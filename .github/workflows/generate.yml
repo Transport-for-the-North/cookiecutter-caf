@@ -18,6 +18,11 @@ jobs:
     env:
       CAF: ${{ matrix.project_folder == 'caf.example' }}
 
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./scripts
+
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -51,15 +56,14 @@ jobs:
     - name: Check Formatting with Black
       uses: psf/black@stable
       with:
-        src: "${{ matrix.project_folder }}/src"
+        src: src
         use_pyproject: true
 
     - name: Check Import Formatting (isort)
       uses: isort/isort-action@master
       with:
-        requirementsFiles: ${{ matrix.project_folder }}/requirements.txt
-          ${{ matrix.project_folder }}/requirements_dev.txt
-        sortPaths: "${{ matrix.project_folder }}/src"
+        requirementsFiles: requirements.txt requirements_dev.txt
+        sortPaths: src
 
     - name: Lint with PyLint
       run: |
