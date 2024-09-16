@@ -52,11 +52,11 @@ jobs:
       working-directory: ${{ matrix.project_folder }}
 
     - name: Check Formatting with Black
-      run: black src
+      run: black src --check
       working-directory: ${{ matrix.project_folder }}
 
     - name: Check Import Formatting (isort)
-      run: isort src
+      run: isort src --check
       working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyLint
