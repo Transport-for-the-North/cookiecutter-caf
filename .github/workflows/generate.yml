@@ -71,9 +71,9 @@ jobs:
     - name: Create Dummy PKG-INFO for Versioningit
       run: |
         sudo chown -R $USER:$USER ${{ matrix.project_folder }}
+        cd ${{ matrix.project_folder }}
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
-      working-directory: ${{ matrix.project_folder }}
 
     - name: Check HTML Documentation Builds (sphinx)
       run: |
