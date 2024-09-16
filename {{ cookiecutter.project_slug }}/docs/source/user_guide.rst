@@ -3,7 +3,7 @@
 User Guide
 ==========
 
-This section provides a guide on using {{ cookiecutter.project_slug }}, for more details
+This section provides a guide on using {{ cookiecutter.__readable_name }}, for more details
 on the API see :ref:`api-docs`.
 
 Installation

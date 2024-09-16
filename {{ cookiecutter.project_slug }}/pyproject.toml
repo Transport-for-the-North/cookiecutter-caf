@@ -3,7 +3,7 @@ requires = ["setuptools>=64.0.0", "versioningit"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "{{ cookiecutter.project_slug }}"
+name = "{{ cookiecutter.package_name }}"
 dynamic = ["version"]
 description = "{{ cookiecutter.description }}"
 readme = "README.md"
@@ -46,7 +46,7 @@ Source = "{{ cookiecutter.github_url }}"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"{{ cookiecutter.project_slug }}" = ["py.typed"]
+"{{ cookiecutter.package_name }}" = ["py.typed"]
 
 # Linters
 [tool.black]
@@ -74,7 +74,7 @@ max-attributes = 15
 max-statements = 100
 
 [tool.mypy]
-packages = ["{{ cookiecutter.project_slug }}"]
+packages = ["{{ cookiecutter.package_name }}"]
 namespace_packages = true
 ignore_missing_imports = true
 allow_redefinition = true

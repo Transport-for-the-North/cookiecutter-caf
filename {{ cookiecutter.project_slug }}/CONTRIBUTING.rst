@@ -29,7 +29,7 @@ For smaller pieces of work, such as a bug fix, a normal pull request can be made
 Coding Style
 ------------
 
-{{ cookiecutter.project_slug }} follows Transport for the North's (TFN) coding standards,
+{{ cookiecutter.__readable_name }} follows Transport for the North's (TFN) coding standards,
 which include:
 
 - Code must conform to `Google Python Style Guide`_

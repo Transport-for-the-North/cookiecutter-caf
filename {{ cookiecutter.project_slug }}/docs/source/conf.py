@@ -3,6 +3,7 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+# Built-Ins
 import os
 import pathlib
 import sys
@@ -14,13 +15,14 @@ sys.path.insert(0, str(source.absolute()))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "{{ cookiecutter.project_slug }}"
+project = "{{ cookiecutter.__readable_name }}"
 copyright = "2024, {{ cookiecutter.author }}"
 author = "{{ cookiecutter.author }}"
 
-import {{ cookiecutter.project_slug }}
+# Third Party
+import {{ cookiecutter.package_name }}
 
-version = str({{ cookiecutter.project_slug }}.__version__)
+version = str({{ cookiecutter.package_name }}.__version__)
 release = version
 
 # -- General configuration ---------------------------------------------------
@@ -55,10 +57,7 @@ autodoc_typehints = "description"
 # Auto summary options
 autosummary_generate = True
 
-modindex_common_prefix = [
-    {% if cookiecutter.caf %}"caf.",{% endif %}
-    "{{ cookiecutter.project_slug }}."
-]
+modindex_common_prefix = [{% if cookiecutter.caf %}"caf.", {% endif %}"{{ cookiecutter.package_name }}."]
 
 
 # -- Options for HTML output -------------------------------------------------

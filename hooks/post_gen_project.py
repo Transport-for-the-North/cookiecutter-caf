@@ -2,12 +2,11 @@
 """Post cookiecutter project generation hook."""
 
 ##### IMPORTS #####
-import pathlib
+
 import subprocess
 
 ##### CONSTANTS #####
 
-CAF = "{{ cookiecutter.caf }}".strip().lower()
 INIT_GIT = "{{ cookiecutter.init_git }}".strip().lower()
 PUSH_REPO = "{{ cookiecutter.push_repository }}".strip().lower()
 
@@ -17,17 +16,6 @@ PUSH_REPO = "{{ cookiecutter.push_repository }}".strip().lower()
 
 def _underline_print(msg: str) -> None:
     print("", msg, "-" * len(msg), sep="\n")
-
-
-def caf_setup():
-    """Create parent CAF folder for package"""
-    _underline_print("Creating CAF directory")
-    caf_dir = pathlib.Path("src/caf")
-    caf_dir.mkdir()
-
-    project_dir = pathlib.Path("src/{{ cookiecutter.__pkg_name }}")
-    project_dir.rename(caf_dir / project_dir.name)
-    print("Done CAF setup")
 
 
 def init_git():
@@ -60,9 +48,6 @@ def _error_msg(msg: str) -> str:
 
 def main():
     """Setup CAF directory and commit to git, if enabled."""
-    if CAF == "true":
-        caf_setup()
-
     if INIT_GIT == "true":
         try:
             init_git()
@@ -74,6 +59,7 @@ def main():
                     f" without setting up the git repository."
                 )
             ) from exc
+
     elif PUSH_REPO == "true":
         raise SystemExit(
             _error_msg(
