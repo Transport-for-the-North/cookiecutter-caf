@@ -49,14 +49,17 @@ jobs:
         pip install -r requirements_dev.txt
 
     - name: Check Formatting with Black
-      run: |
-        cd ${{ matrix.project_folder }}
-        black src
+      uses: psf/black@stable
+      with:
+        src: "${{ matrix.project_folder }}/src"
+        use_pyproject: true
 
     - name: Check Import Formatting (isort)
-      run: |
-        cd ${{ matrix.project_folder }}
-        isort src
+      uses: isort/isort-action@master
+      with:
+        requirementsFiles: ${{ matrix.project_folder }}/requirements.txt
+          ${{ matrix.project_folder }}/requirements_dev.txt
+        sortPaths: "${{ matrix.project_folder }}/src"
 
     - name: Lint with PyLint
       run: |
