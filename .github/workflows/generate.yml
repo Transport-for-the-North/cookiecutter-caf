@@ -33,6 +33,9 @@ jobs:
             "project_name": "example"
           }'
 
+    - name: Fix Project Folder Ownership
+      run: sudo chown -R $USER:$USER ${{ matrix.project_folder }}
+
     - name: Display Generated Project
       run: tree ${{ matrix.project_folder }}
 
@@ -49,11 +52,11 @@ jobs:
       working-directory: ${{ matrix.project_folder }}
 
     - name: Check Formatting with Black
-      run: black src
+      run: black src --check
       working-directory: ${{ matrix.project_folder }}
 
     - name: Check Import Formatting (isort)
-      run: isort src
+      run: isort src --check
       working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyLint
@@ -70,10 +73,9 @@ jobs:
 
     - name: Create Dummy PKG-INFO for Versioningit
       run: |
-        sudo chown -R $USER:$USER ${{ matrix.project_folder }}
-        cd ${{ matrix.project_folder }}
         sudo printf "Metadata-Version: 1.1\nVersion: 0.1.0" > PKG-INFO
         cat PKG-INFO
+      working-directory: ${{ matrix.project_folder }}
 
     - name: Check HTML Documentation Builds (sphinx)
       run: |
