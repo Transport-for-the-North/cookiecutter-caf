@@ -46,6 +46,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinxarg.ext",
     "sphinx.ext.linkcode",
+    "sphinx.ext.todo",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -91,6 +92,17 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
 }
 intersphinx_timeout = 30
+
+# -- Options for Todo extension ----------------------------------------------
+def get_env_bool(name: str, default: bool) -> bool:
+    value = os.getenv(name, default)
+    if isinstance(value, bool):
+        return value
+    return value.lower().strip() in ("true", "t", "yes", "y", "1")
+
+
+todo_include_todos = get_env_bool("SPHINX_INCLUDE_TODOS", True)
+todo_emit_warnings = True
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -9,11 +9,11 @@ Tool Usage
 Graphical User Interface
 ------------------------
 
-.. attention::
+.. todo::
     Does {{ cookiecutter.__readable_name }} have a GUI?
 
 Command-Line Interface
 ----------------------
 
-.. attention::
+.. todo::
     Does {{ cookiecutter.__readable_name }} have a CLI?

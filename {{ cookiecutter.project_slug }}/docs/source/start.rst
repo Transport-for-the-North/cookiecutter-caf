@@ -1,6 +1,10 @@
 Quick Start
 ===========
 
+.. todo::
+    Write brief description about the possible ways for using the tool e.g. CLI, GUI and
+    importing in Python.
+
 *{{ cookiecutter.__readable_name }} is provided as a Python package and a command-line utility.
 The command-line utility aims to make some of the commonly used functionality 
 available without needing to use Python code, see :ref:`usage` for details.*
@@ -21,7 +25,7 @@ Installing through conda-forge is easy and can be done in one command:
 Pipx
 ----
 
-.. attention::
+.. todo::
     Does {{ cookiecutter.__readable_name }} support being installed with
     `Pipx <https://pipx.pypa.io/stable/>`__?
 
@@ -29,7 +33,7 @@ Pipx
 Usage
 -----
 
-.. attention::
+.. todo::
     Does {{ cookiecutter.__readable_name }} have a CLI or GUI?
 
 More details can be found in :ref:`tool usage`.
@@ -37,7 +41,7 @@ More details can be found in :ref:`tool usage`.
 Python
 ^^^^^^
 
-.. attention::
+.. todo::
     Does {{ cookiecutter.__readable_name }} have a suggested alias?
 
 When using {{ cookiecutter.__readable_name }} functionality within Python:
