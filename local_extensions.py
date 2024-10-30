@@ -13,6 +13,11 @@ from cookiecutter.utils import simple_filter
 
 ##### CLASSES & FUNCTIONS #####
 
+@simple_filter
+def remove_prefix(name: str, prefix: str) -> str:
+    """Remove given prefix from name."""
+    prefix = re.escape(prefix)
+    return re.sub(rf"^{prefix}", "", name.strip(), flags=re.I)
 
 @simple_filter
 def pkg_name(name: str, remove_caf: bool = False) -> str:
