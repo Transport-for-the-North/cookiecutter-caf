@@ -21,13 +21,15 @@ which is a collaboration between transport bodies in the UK to develop and maint
 transport analytics and appraisal tools.
 {% endif %}
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Contents
+--------
 
+.. toctree::
+   :maxdepth: 3
+
+   start
    user_guide
    api
-   examples/index
 
 
 Indices and tables
