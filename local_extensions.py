@@ -15,9 +15,13 @@ from cookiecutter.utils import simple_filter
 
 
 @simple_filter
-def pkg_name(name: str) -> str:
+def pkg_name(name: str, remove_caf: bool = False) -> str:
     """Remove characters not allowed in Python package names."""
     name = str(name).strip().lower()
+    
+    if remove_caf:
+        name = name.removeprefix("caf.")
+
     name = re.sub(r"[\s_.-]+", "_", name)
 
     # Remove all non-allowed characters
@@ -33,8 +37,12 @@ def pkg_name(name: str) -> str:
 
 
 @simple_filter
-def repo_name(name: str) -> str:
+def repo_name(name: str, remove_caf: bool = False) -> str:
     """Remove characters not allowed in repository names."""
+
+    if remove_caf:
+        name = name.removeprefix("caf.")
+
     name = str(name).strip().lower()
     name = re.sub(r"[\s]+", "-", name)
 
