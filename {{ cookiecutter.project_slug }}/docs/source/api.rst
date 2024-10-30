@@ -1,10 +1,13 @@
-.. _api-docs:
+API Reference
+=============
 
-Module API Documentation
-========================
+This section shows the detailed documentation for {{ cookiecutter.__readable_name }},
+last updated on |today|.
 
-This section shows the detailed documentation for {{ cookiecutter.__readable_name }}, last
-updated on |today|. For more in-depth user guide and tutorial see :ref:`user-guide`.
+.. note::
+   - For quick start guide see :ref:`quick start`
+   - For more in-depth user guide and tutorial see :ref:`user guide`
+   - For code examples see :ref:`code examples`
 
 .. autosummary::
     :toctree: _autosummary/
