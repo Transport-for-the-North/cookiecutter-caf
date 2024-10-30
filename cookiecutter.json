@@ -1,7 +1,7 @@
 {
     "project_name": "Package Name",
     "caf": false,
-    "__readable_name": "{% if cookiecutter.caf %}CAF {% endif %}{{ cookiecutter.project_name }}",
+    "__readable_name": "{% if cookiecutter.caf %}CAF {% endif %}{{ cookiecutter.project_name|remove_prefix('caf.') }}",
     "package_name": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.project_name|pkg_name(True) }}",
     "project_slug": "{% if cookiecutter.caf %}caf.{% endif %}{{ cookiecutter.project_name|repo_name(True) }}",
     "author": "Transport for the North",
@@ -24,7 +24,8 @@
     },
     "_extensions": [
         "local_extensions.pkg_name",
-        "local_extensions.repo_name"
+        "local_extensions.repo_name",
+        "local_extensions.remove_prefix"
     ],
     "__prompts__": {
         "project_name": "Human-Readable Project Name",
