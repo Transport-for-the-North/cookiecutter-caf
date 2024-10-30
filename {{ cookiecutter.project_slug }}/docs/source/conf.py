@@ -44,7 +44,6 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx_gallery.gen_gallery",
     "sphinx.ext.intersphinx",
-    "sphinxarg.ext",
     "sphinx.ext.linkcode",
     "sphinx.ext.todo",
 ]
