@@ -56,8 +56,8 @@ and report bugs or submit a feature request. This helps {{ cookiecutter.__readab
 stable and full-featured. Please check the closed bugs before submitting a bug report to see if your
 question has already been answered.
 
-Please see [CONTRIBUTING.rst](contributing.rst) for details on contributing to the codebase or
-documentation.
+Please see our [contribution guidelines](https://github.com/Transport-for-the-North/.github/blob/main/CONTRIBUTING.rst)
+for details on contributing to the codebase or documentation.
 
 ## Documentation
 
