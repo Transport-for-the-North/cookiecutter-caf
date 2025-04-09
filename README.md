@@ -52,12 +52,56 @@ brackets) which should be used for many of the parameters, the full set of param
 - **Package Description:** short description of the package, will be included in the generated
   README and the package metadata.
 - **Initialise Git Repository:** if y(es) will initialise the folder as a local git repository,
-  this will not create the repository on GitHub.
+  this will not create the repository on GitHub. *This is recommended to be enabled.*
 - **Push Repository to GitHub:** if y(es) will push (upload) the local git repository to a GitHub
   repository, an empty GitHub repository must exist at the correct URL or this will fail.
 
 > **Note:** the [git](https://git-scm.com/) command-line utility is required for the
 > repository initialisation and push to GitHub processes.
+
+### Publishing the Repository
+
+The cookiecutter template can automatically initialise and push the generated folder to GitHub,
+although it cannot currently create a new repository on GitHub. The recommended method for
+creating the repository on GitHub is the following:
+
+- Setup and run the cookiecutter template (see [](#usage) and [](#parameters) for details).
+- **Before** filling out the final cookiecutter parameters (i.e. before it attempts to generate
+  the folder), you should create the empty repository on GitHub (see [](#create-empty-github-repository)).
+- Once the empty GitHub repository is created confirm that the URL is correct within the template
+  parameters and select y(es) for push repository to GitHub. Cookiecutter will generate a folder
+  on your machine, initialise it as a git repository and then push the files to the empty GitHub
+  repository.
+
+> **Note:** for cookiecutter to push you local repository to GitHub you need to be logged into
+> your GitHub account within the git command-line tool, you can check this by attempting to
+> clone a private GitHub repository with `git clone`.
+
+Alternatively, pushing the repository to GitHub can be done through the GitHub desktop app. If
+you prefer to do it this way then the "Push Repository to GitHub" parameter in the template should
+be set to n(o). Once cookiecutter has created, and initialised, your local folder open it within
+GitHub desktop and press the button to publish the repository.
+
+#### Create Empty GitHub Repository
+
+To create a new, empty, GitHub repository, log on to GitHub.com and go to the
+[Create a New Repository](https://github.com/organizations/Transport-for-the-North/repositories/new)
+page.
+
+- Fill out the repository name, description and owner (Transport-for-the-North for any TfN
+projects).
+- Select "No template", as the template is handled by cookiecutter (see [](#usage)).
+- TfN projects should be created as **private** by default and only changed to public after review.
+- To create an empty repository everything in the "Initialize this repository with" section, should
+  be disabled
+  - "Add a README file" should be **un**ticked
+  - "Add .gitignore" should be None
+  - "Choose a license" should be None
+- Once parameters are set click "Create repository" to create the empty GitHub repository, this
+  will take you to the repository just created with information about how to initialise.
+
+> **Note:** any new TfN GitHub repositories should be created as private and then should be
+> reviewed before converting to public.
 
 ## Template Details
 
