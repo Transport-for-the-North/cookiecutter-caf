@@ -19,6 +19,10 @@ questions and will then create the repository folder locally and, if enabled, in
 Git can be initialised manually from the git command-line utility or within GitHub desktop,
 if preferred.
 
+> **Note:** cookiecutter will generate the folder in the working directory, although this can
+> be changed with the cookiecutter [output-dir](https://cookiecutter.readthedocs.io/en/stable/cli_options.html#cmdoption-cookiecutter-o)
+> argument.
+
 ### Parameters
 
 This template will ask for some parameters about the project, and will use these during the
@@ -208,15 +212,21 @@ initial version that isn't ready for a full `v1.0.0` release.
 ## Cookiecutter Setup
 
 Cookiecutter is a Python package provided with a command-line utility, the recommended way to
-install this is using [pipx](https://pipx.pypa.io/stable/).
-
-To install pipx you will need a version of Python installed on your machine (and accessible
-within the command-prompt), pipx can be installed with `pip install pipx`. Once pipx is installed
-use `pipx ensurepath` to add pipx's executable folder to the PATH variable so anything installed
-is accessible.
+install this is using [pipx](https://pipx.pypa.io/stable), see [](#pipx-setup).
 
 Installing cookiecutter with pipx is: `pipx install cookiecutter`. This will install and setup
 the command-line utility so it can be called using the `cookiecutter` command.
+
+### Pipx Setup
+
+To install pipx you will need a version of Python installed on your machine (and accessible
+within the command-prompt), pipx can be installed with `pip install pipx`. Once pipx is installed
+use `pipx ensurepath` to add the location where pipx installs any tools, pipx's executable folder,
+to the PATH variable so anything installed is accessible.
+
+> **Note:** pipx will be installed in the Python environment the `pip install pipx` command is ran
+> from, it is recommended this is your base environment and that the scripts folder
+> (containing pip, pipx, etc.) is added to the machines PATH environment variable.
 
 ## Cookiecutter Structure
 
