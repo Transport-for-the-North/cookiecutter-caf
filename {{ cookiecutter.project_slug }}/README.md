@@ -37,11 +37,10 @@
 Template usage and information is shown in [Template Usage](#template-usage) section below.
 {% endif %}
 
-## Under Development
-
-This package is in an early stage of development so features may change or be removed. If
-using this package it is recommended to set a specific version and check before upgrading
-to a new version.
+> [!WARNING]  
+> This package is in an early stage of development so features may change or be removed. 
+> If using this package it is recommended to set a specific version and check before 
+> upgrading to a new version.
 
 {% if cookiecutter.caf %}
 
