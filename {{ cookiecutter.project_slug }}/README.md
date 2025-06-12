@@ -3,6 +3,9 @@
 <h1 align="center">{{ cookiecutter.__readable_name }}</h1>
 
 <p align="center">
+<a href="https://transport-for-the-north.github.io/CAF-Handbook/python_tools/framework.html">
+  <img alt="CAF Status - Pre-Alpha" src="https://img.shields.io/badge/CAF%20Status-Pre--Alpha-orange">
+</a>
 <a href="https://pypi.org/project/{{ cookiecutter.project_slug }}/">
   <img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/{{ cookiecutter.project_slug }}.svg?style=flat-square">
 </a>
@@ -12,6 +15,8 @@
 <a href="https://anaconda.org/conda-forge/{{ cookiecutter.project_slug }}">
   <img alt="Conda" src="https://img.shields.io/conda/v/conda-forge/{{ cookiecutter.project_slug }}?style=flat-square&logo=condaforge">
 </a>
+</p>
+<p align="center">
 <a href="https://app.codecov.io/gh/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}">
   <img alt="Coverage" src="https://img.shields.io/codecov/c/github/{{ cookiecutter.github_org }}/{{ cookiecutter.project_slug }}.svg?branch=main&style=flat-square&logo=CodeCov">
 </a>
@@ -31,6 +36,12 @@
 {% if cookiecutter.package_name == "package_name" %}
 Template usage and information is shown in [Template Usage](#template-usage) section below.
 {% endif %}
+
+## Under Development
+
+This package is in an early stage of development so features may change or be removed. If
+using this package it is recommended to set a specific version and check before upgrading
+to a new version.
 
 {% if cookiecutter.caf %}
 
