@@ -31,16 +31,16 @@
 </a>
 </p>
 
+> [!WARNING]  
+> This package is in an early stage of development so features may change or be removed. 
+> If using this package it is recommended to set a specific version and check before 
+> upgrading to a new version.
+
 {{ cookiecutter.description }}
 
 {% if cookiecutter.package_name == "package_name" %}
 Template usage and information is shown in [Template Usage](#template-usage) section below.
 {% endif %}
-
-> [!WARNING]  
-> This package is in an early stage of development so features may change or be removed. 
-> If using this package it is recommended to set a specific version and check before 
-> upgrading to a new version.
 
 {% if cookiecutter.caf %}
 
