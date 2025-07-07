@@ -51,11 +51,7 @@ which is a collaboration between transport bodies in the UK to develop and maint
 transport analytics and appraisal tools.
 {% endif %}
 
-## Maintainers
-
-{% for maintainer in cookiecutter.project_maintainers.split(";") %}
-- {{ maintainer|trim }}
-{% endfor %}
+---
 
 <details><summary><h2>Contributing</h2></summary>
 
@@ -128,6 +124,12 @@ package above.
 
 ---
 {% endif %}
+
+## Maintainers
+
+{% for maintainer in cookiecutter.project_maintainers.split(";") %}
+- {{ maintainer|trim }}
+{% endfor %}
 
 ## Credit
 
