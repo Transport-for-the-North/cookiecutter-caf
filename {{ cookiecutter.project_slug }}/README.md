@@ -51,13 +51,9 @@ which is a collaboration between transport bodies in the UK to develop and maint
 transport analytics and appraisal tools.
 {% endif %}
 
-## Maintainers
+---
 
-{% for maintainer in cookiecutter.project_maintainers.split(";") %}
-- {{ maintainer|trim }}
-{% endfor %}
-
-## Contributing
+<details><summary><h2>Contributing</h2></summary>
 
 {{ cookiecutter.__readable_name }} happily accepts contributions.
 
@@ -68,8 +64,9 @@ question has already been answered.
 
 Please see our [contribution guidelines](https://github.com/Transport-for-the-North/.github/blob/main/CONTRIBUTING.rst)
 for details on contributing to the codebase or documentation.
+</details>
 
-## Documentation
+<details><summary><h2>Documentation</h2></summary>
 
 Documentation is created using [Sphinx](https://www.sphinx-doc.org/en/master/index.html) and is hosted online at
 [{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs](https://{{ cookiecutter.project_slug.replace(".", "") }}.readthedocs.io/en/stable/).
@@ -112,6 +109,7 @@ provides a target (latexpdf) which builds the LaTeX files then immediately build
 running `make latexpdf` MiKTeX may ask for permission to installed some required TeX packages.
 Once the command has finished the PDF will be located at
 [`docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf`](docs/build/latex/{{ cookiecutter.project_slug.replace(".", "") }}.pdf).
+</details>
 
 {% if cookiecutter.package_name == "package_name" %}
 ---
@@ -126,6 +124,12 @@ package above.
 
 ---
 {% endif %}
+
+## Maintainers
+
+{% for maintainer in cookiecutter.project_maintainers.split(";") %}
+- {{ maintainer|trim }}
+{% endfor %}
 
 ## Credit
 
