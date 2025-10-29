@@ -21,6 +21,7 @@ classifiers = [
 "Bug Tracker" = "{{ cookiecutter.github_url }}/issues"
 Homepage = "{{ cookiecutter.github_url }}"
 Source = "{{ cookiecutter.github_url }}"
+Documentation = "http://{{ cookiecutter.project_slug|replace('.', '') }}.readthedocs.io/"
 
 [tool.setuptools.dynamic]
 dependencies = { "file" = "requirements.txt" }
