@@ -38,16 +38,10 @@ jobs:
 
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v4
-      env: # if can't access secrets so store in env variable
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      if: env.CODECOV_TOKEN != ''
       with:
-        token: ${{ env.CODECOV_TOKEN }}
+        token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Upload test results to Codecov
-      env: # if can't access secrets so store in env variable
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      if: ${{ !cancelled() && env.CODECOV_TOKEN != '' }}
       uses: codecov/test-results-action@v1
       with:
-        token: ${{ env.CODECOV_TOKEN }}
+        token: ${{ secrets.CODECOV_TOKEN }}
