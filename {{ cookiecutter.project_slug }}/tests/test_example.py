@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
-"""Tests for the {} module"""
-# Built-Ins
-from typing import Any
+"""Tests for the {} module."""
 
-# Third Party
-import pytest
+# # # IMPORTS # # #
 
 
 # # # CONSTANTS # # #
@@ -15,5 +11,8 @@ import pytest
 
 # # # TESTS # # #
 class TestFunctionName:
-    def test_something(self):
+    """Example test class."""
+
+    def test_something(self) -> None:
+        """Example unit test."""
         assert True
