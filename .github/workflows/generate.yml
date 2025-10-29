@@ -52,11 +52,11 @@ jobs:
       working-directory: ${{ matrix.project_folder }}
 
     - name: Check Formatting with ruff
-      run: ruff format --check --diff --ignore=N999,D400 # Errors from template syntax
+      run: ruff format --check --diff
       working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with ruff
-      run: ruff check --no-fix
+      run: ruff check --no-fix --ignore=N999,D400 # Errors from template syntax
       working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyLint
