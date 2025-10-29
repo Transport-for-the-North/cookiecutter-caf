@@ -51,12 +51,12 @@ jobs:
         pip install -r requirements_dev.txt
       working-directory: ${{ matrix.project_folder }}
 
-    - name: Check Formatting with Black
-      run: black src --check
+    - name: Check Formatting with ruff
+      run: ruff format --check --diff
       working-directory: ${{ matrix.project_folder }}
 
-    - name: Check Import Formatting (isort)
-      run: isort src --check
+    - name: Lint with ruff
+      run: ruff check --no-fix
       working-directory: ${{ matrix.project_folder }}
 
     - name: Lint with PyLint
@@ -65,10 +65,6 @@ jobs:
 
     - name: Lint with MyPy
       run: mypy src
-      working-directory: ${{ matrix.project_folder }}
-
-    - name: Lint with PyDocStyle
-      run: pydocstyle src
       working-directory: ${{ matrix.project_folder }}
 
     - name: Create Dummy PKG-INFO for Versioningit
