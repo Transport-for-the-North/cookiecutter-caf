@@ -121,6 +121,15 @@ convention = "numpy"
 [tool.ruff.lint.pep8-naming]
 ignore-names = ["df", "fn", "ca", "tp", "x", "i"]
 
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
+# Recommended aliases for caf packages
+"caf.toolkit" = "ctk"
+"caf.base" = "cbase"
+"caf.mat" = "cmat"
+"caf.space" = "cspace"
+"caf.distribute" = "cdist"
+"caf.viz" = "cviz"
+
 [tool.ruff.lint.pylint]
 max-args = 10
 max-statements = 100
