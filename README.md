@@ -109,6 +109,8 @@ projects).
 
 ## Template Details
 
+TODO <https://github.com/Transport-for-the-North/cookiecutter-caf/pull/45#issuecomment-3461479637>
+
 This section provides some more details on what is produced by the template generation,
 including providing details on some of the specific sub-folders which are created.
 
@@ -119,15 +121,15 @@ to help manage, update, release, and test a new python package. Here is a list o
 this sets up for you:
 
 - Automatic and easy to use code linting / analysis which works on your machine, which provides:
-  - MyPy type checking
-  - Pylint syntax checking
-  - PyDocStyle documentation checking
-  - Test running via pytest
-- Setup for [Black](https://github.com/psf/black) code formatter
-  - This can be run with `black src` or `black tests` from the root of this repo
-- GitHub actions which run on all pull requests and pushes to main
-  - These run the above tox and black checks and will warn you where code deviates from the standards
-- Automatic code versioning via Git Tags
+  - [MyPy](https://mypy.readthedocs.io/en/stable/) type checking
+  - [Ruff](https://docs.astral.sh/ruff/) for linting and formatting
+  - [Pylint](https://pylint.org/) syntax checking - some things ruff doesn't pickup
+  - Test running via [pytest](https://docs.pytest.org/en/stable/)
+- GitHub actions which run on all pull requests and pushes to main, which run linting, formatting
+  and testing checks, see [GitHub Actions](#github-actions) for details.
+- Additional actions and configs (which need some setup) for publishing on PyPI, publishing
+  documentation, see [GitHub Actions](#github-actions) for details.
+- Automatic code versioning via Git Tags, see [VersioningIt](#versioningit) for details.
 - Lays out the package in a consistent format to fit the Python package structure.
 
 ### docs
@@ -206,6 +208,62 @@ VersioningIt is based off of git Tags, which you can set on GitHub. Version
 tags should start with a 'v' and contain three numbers (following the
 [Semantic Versioning](https://semver.org/) convention) e.g., `v0.1.0` for an
 initial version that isn't ready for a full `v1.0.0` release.
+
+### GitHub Actions
+
+GitHub actions are all defined as YAML files inside the `.github/workflows` folder
+
+#### Linting & Checking
+
+The majority of the workflows will run on any pull requests (or pushes) into the default
+branch (usually main). These workflows performing basic checks to ensure the code meets
+coding standards, builds correctly and tests pass. They're split into the following workflows:
+
+- linting - runs Python linting and formatting tools ruff and pylint
+- typing - runs mypy
+- tests - runs unit tests with pytest
+- build - checks that the package builds using pip
+
+The above workflows assist the reviewer of a pull request to ensure certain standard are met
+but ultimately it is still the responsibility of the reviewer to check the pull request before
+merging.
+
+#### PyPI Release
+
+The `release.yml` workflow is one of the methods used by PyPI for publishing. In order to release
+a package on PyPI a project needs to be on PyPI which links to a repository containing a release
+workflow file.
+
+The basic setup for a PyPI release is as follows:
+
+- Setup 'release' environment in the GitHub repository, this can only be done by a repository admin
+- Login to PyPI and select [publishing](https://pypi.org/manage/account/publishing/)
+- Fill out the project parameters, including reference to the `release.yml` file, environment
+  name should be 'release'.
+
+Once the project is added to PyPI the package will be published everytime a GitHub release is
+created.
+
+> [!ATTENTION]
+> For any TfN repositories publishing to PyPI should be discussed with the
+> [CAF Admins team](https://github.com/orgs/Transport-for-the-North/teams/caf-admins)
+
+#### Publishing Documentation
+
+Publishing documentation is handled by readthedocs.org all that is required on the
+GitHub repository is for some parameters to be defined in `.readthedocs.yaml`.
+
+A new project can be setup on readthedocs.org by creating an account linked to GitHub,
+selecting [Add project](https://app.readthedocs.org/dashboard/import/), choosing a
+repository and configuring some settings. Once setup read the docs should automatically
+build the documentation for any GitHub releases and the main branch.
+
+There's also a `documentation-links.yml` workflow which runs on pull requests to link
+to a preview of the documentation for that pull request.
+
+> [!ATTENTION]
+> For any TfN repositories publishing documentation should be discussed with the
+> [CAF Admins team](https://github.com/orgs/Transport-for-the-North/teams/caf-admins)
 
 ---
 
