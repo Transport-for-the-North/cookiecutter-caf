@@ -124,11 +124,11 @@ ignore-names = ["df", "fn", "ca", "tp", "x", "i"]
 [tool.ruff.lint.flake8-import-conventions.extend-aliases]
 # Recommended aliases for caf packages
 "caf.toolkit" = "ctk"
-"caf.base" = "cb"
-"caf.mat" = "cm"
-"caf.space" = "cs"
-"caf.distribute" = "cdb"
-"caf.viz" = "cvz"
+"caf.base" = "cbase"
+"caf.mat" = "cmat"
+"caf.space" = "cspace"
+"caf.distribute" = "cdist"
+"caf.viz" = "cviz"
 
 [tool.ruff.lint.pylint]
 max-args = 10
