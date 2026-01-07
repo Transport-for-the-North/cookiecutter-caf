@@ -91,6 +91,8 @@ autosummary_context = {
 sphinx_gallery_conf = {
     "examples_dirs": "../../examples",  # path to your example scripts
     "gallery_dirs": "_generated/examples",  # path to where to save gallery generated output
+    "backreferences_dir": "_generated/examples/backrefs",  # path to the backreferences files
+    "doc_module": ("{{ cookiecutter.package_name }}",),
     # Regex pattern of filenames to be ran so the output can be included
     "filename_pattern": rf"{re.escape(os.sep)}run_.*\.py",
 }
