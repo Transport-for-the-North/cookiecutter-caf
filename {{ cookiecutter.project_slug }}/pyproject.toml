@@ -153,6 +153,8 @@ disable = [
     "use-dict-literal",
     "use-list-literal",
     "wrong-import-position", # Compatibility with ruff
+    "wrong-import-order",    # Handled by ruff
+    "ungrouped-imports",     # Handled by ruff
 ]
 
 [tool.pylint.basic]
