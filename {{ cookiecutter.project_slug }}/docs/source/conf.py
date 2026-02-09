@@ -22,7 +22,7 @@ sys.path.insert(0, str(source.absolute()))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "{{ cookiecutter.__readable_name }}"
-copyright = "2024, {{ cookiecutter.author }}"
+copyright = "2025, {{ cookiecutter.author }}"
 author = "{{ cookiecutter.author }}"
 
 # Third Party
@@ -78,10 +78,21 @@ autosummary_generate = True
 autosummary_imported_members = True
 modindex_common_prefix = [{% if cookiecutter.caf %}"caf.", {% endif %}"{{ cookiecutter.package_name }}."]
 
+autosummary_context = {
+    # Enable inherited methods / attributes in all classes
+    "include_inherited_methods": False,
+    "include_inherited_attributes": False,
+    # Enable / disable inherited methods / attributes in some classes
+    "show_inherited": [],
+    "exclude_inherited": [],
+}
+
 # -- Options for Sphinx Examples gallery -------------------------------------
 sphinx_gallery_conf = {
     "examples_dirs": "../../examples",  # path to your example scripts
-    "gallery_dirs": "examples",  # path to where to save gallery generated output
+    "gallery_dirs": "_generated/examples",  # path to where to save gallery generated output
+    "backreferences_dir": "_generated/examples/backrefs",  # path to the backreferences files
+    "doc_module": ("{{ cookiecutter.package_name }}",),
     # Regex pattern of filenames to be ran so the output can be included
     "filename_pattern": rf"{re.escape(os.sep)}run_.*\.py",
 }
@@ -147,6 +158,11 @@ html_theme_options = {
         },
     ],
     "primary_sidebar_end": ["indices.html", "sidebar-ethical-ads.html"],
+    "announcement": """
+        The documentation pages are currently work-in-progress, if you have any suggestions
+        for improvements please raise an issue on the
+        <a href="{{ cookiecutter.github_url }}/issues/new/choose">{{ cookiecutter.project_slug }} repository</a>.
+    """,
 }
 html_context = {
     "github_url": "https://github.com",
