@@ -97,6 +97,7 @@ ignore = [
     "SIM108", # one line if else (flake8-bandit)
     "S311",   # random.random not allowed (flake8-bandit)
     "DOC502", # docstring-extraneous-exception (sometimes necessary)
+    "ANN003", # type annotation for **kwargs
 ]
 unfixable = [
     "T20",  # print-statements (flake8-print)
@@ -150,6 +151,8 @@ disable = [
     "use-dict-literal",
     "use-list-literal",
     "wrong-import-position", # Compatibility with ruff
+    "wrong-import-order",    # Handled by ruff
+    "ungrouped-imports",     # Handled by ruff
 ]
 
 [tool.pylint.basic]
