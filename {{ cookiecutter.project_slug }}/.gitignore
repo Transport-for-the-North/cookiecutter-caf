@@ -158,5 +158,5 @@ dmypy.json
 *.yaml
 
 # Specific configs can be included using '!' https://git-scm.com/docs/gitignore#_pattern_format
-# e.g. all configs in the examples folder
-# !examples/*.yml
+# All configs in the examples folder are included
+!examples/*.yml
