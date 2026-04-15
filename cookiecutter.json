@@ -11,6 +11,8 @@
     "description": "Package description",
     "init_git": false,
     "push_repository": false,
+    "__docs_name": "{{ cookiecutter.project_slug.replace('.', '') }}",
+    "__readthedocs_url": "https://{{ cookiecutter.__docs_name }}.readthedocs.io/en",
     "_template_details": "filled by pre_prompt hook",
     "__pkg_folder": "{{ cookiecutter.package_name.replace('.', '/') }}",
     "_copy_without_render": [
