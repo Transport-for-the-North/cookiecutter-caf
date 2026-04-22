@@ -73,13 +73,13 @@
 
 ### What does it do?
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > This section of the README hasn't been written yet, but it will contain a brief
 > description of what the tool is intended to do.
 
 ### Main Features
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > This section of the README hasn't been written yet.
 
 - **Feature 1** - description
@@ -89,8 +89,8 @@
 - **Work in progress feature** - description of feature not yet release.
 
 > [!WARNING]
-> These features are work-in-progress and are not available in a released version of caf.space, to
-> access these features a specific branch of caf.space should be installed, see [Installation from GitHub](#installation-from-github).
+> These features are work-in-progress and are not available in a released version of {{ cookiecutter.project_slug }}, to
+> access these features a specific branch of {{ cookiecutter.project_slug }} should be installed, see [Installation from GitHub](#installation-from-github).
 
 ### Who is it for?
 
@@ -105,7 +105,7 @@ For more details on CAF Analytical Stages see the [description within TfN's GitH
 
 ## Where to get it
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > {{ cookiecutter.project_slug }} has not been published yet so cannot be installed from
 > conda-forge or PyPI, see [Installation from GitHub](#installation-from-github).
 
@@ -142,7 +142,7 @@ pip install "git+{{ cookiecutter.github_url }}"
 
 ## Usage
 
-CAF.space provides and Command-line (CLI) and graphical interface (GUI) to use many of it's
+{{ cookiecutter.project_slug }} provides and Command-line (CLI) and graphical interface (GUI) to use many of it's
 features without the need to write any Python code, see the [Tool Usage section]({{ cookiecutter.__readthedocs_url }}/stable/usage/index.html)
 of the user guide for more details.
 
