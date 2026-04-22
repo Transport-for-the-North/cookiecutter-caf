@@ -73,13 +73,13 @@
 
 ### What does it do?
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > This section of the README hasn't been written yet, but it will contain a brief
 > description of what the tool is intended to do.
 
 ### Main Features
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > This section of the README hasn't been written yet.
 
 - **Feature 1** - description
@@ -105,7 +105,7 @@ For more details on CAF Analytical Stages see the [description within TfN's GitH
 
 ## Where to get it
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > {{ cookiecutter.project_slug }} has not been published yet so cannot be installed from
 > conda-forge or PyPI, see [Installation from GitHub](#installation-from-github).
 
