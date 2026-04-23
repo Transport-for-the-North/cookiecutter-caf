@@ -64,10 +64,14 @@
 - [Usage](#usage)
   - [Command Line](#command-line)
 - [Documentation](#documentation)
+{% if cookiecutter.caf %}
 - [What is CAF?](#what-is-caf)
+{% endif %}
 - [Contribution](#contribution)
 - [Contact Us](#contact-us)
+{% if cookiecutter.package_name == "package_name" %}
 - [Template Usage](#template-usage)
+{% endif %}
 
 ## Overview
 
