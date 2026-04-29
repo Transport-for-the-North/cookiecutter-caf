@@ -10,5 +10,5 @@ updates:
     schedule:
       interval: "weekly"
     # This will tell dependabot to only submit security update PRs
-    # If you want to bump minimum versions when available, increase this number. The default is 10.
+    # If you want to bump minimum versions when available, increase this number. We recommend a maximum value of 3.
     open-pull-requests-limit: 0
