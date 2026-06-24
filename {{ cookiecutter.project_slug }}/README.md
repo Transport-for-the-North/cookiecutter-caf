@@ -1,7 +1,6 @@
 <div align="center" style="background-color: white;">
 <a href="https://www.transportforthenorth.com/">
-<img src="https://strapiprodcontainer.blob.core.windows.net/uploads/assets/logo_130730e8a7.svg"
-  alt="Transport for the North logo">
+<img src="https://www.transportforthenorth.com/logo.svg" alt="Transport for the North logo">
 </a>
 </div>
 
