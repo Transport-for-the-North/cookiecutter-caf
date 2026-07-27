@@ -121,6 +121,7 @@ todo_emit_warnings = True
 #
 html_theme = "pydata_sphinx_theme"
 html_show_sourcelink = False
+html_logo = "https://www.transportforthenorth.com/logo.svg"
 
 master_doc = "index"
 
@@ -128,11 +129,15 @@ master_doc = "index"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
+html_css_files = ["css/logo.css"]
 
 html_theme_options = {
     "use_edit_page_button": True,
     "logo": {
+        "image_dark": "https://raw.githubusercontent.com/Transport-for-the-North"
+        "/.github/refs/heads/main/profile/tfn-logo-white.png",
         "text": f"{project} {version}",
+        "alt_text": "Home",
     },
     "icon_links": [
         {
@@ -142,7 +147,7 @@ html_theme_options = {
             "type": "fontawesome",
         }
     ],
-    "header_links_before_dropdown": 4,
+    "header_links_before_dropdown": 3,
     "external_links": [
         {
             "name": "Changelog",
@@ -153,8 +158,8 @@ html_theme_options = {
             "url": "{{ cookiecutter.github_url }}/issues",
         },
         {
-            "name": "CAF Handbook",
-            "url": "https://transport-for-the-north.github.io/CAF-Handbook/",
+            "name": "TfN GitHub",
+            "url": "https://github.com/Transport-for-the-North",
         },
     ],
     "primary_sidebar_end": ["indices.html", "sidebar-ethical-ads.html"],

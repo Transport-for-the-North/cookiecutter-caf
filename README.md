@@ -1,3 +1,11 @@
+<div align="center">
+<a href="https://www.transportforthenorth.com/">
+<img
+    src="https://raw.githubusercontent.com/Transport-for-the-North/.github/refs/heads/main/profile/tfn-banner.svg"
+    alt="Transport for the North logo">
+</a>
+</div>
+
 # Cookiecutter-CAF
 
 Cookiecutter template for Transport for the North's packages, this template works for both

@@ -1,6 +1,8 @@
-<div align="center" style="background-color: white;">
+<div align="center">
 <a href="https://www.transportforthenorth.com/">
-<img src="https://www.transportforthenorth.com/logo.svg" alt="Transport for the North logo">
+<img
+    src="https://raw.githubusercontent.com/Transport-for-the-North/.github/refs/heads/main/profile/tfn-banner.svg"
+    alt="Transport for the North logo">
 </a>
 </div>
 
@@ -168,7 +170,7 @@ The code documentation is hosted at <{{ cookiecutter.__readthedocs_url }}/stable
 
 ## What is CAF?
 
-This tool is part of TfN's [Common Analytical Framework (CAF)](https://github.com/Transport-for-the-North).
+This tool is part of TfN's [Common Analytical Framework (CAF)](https://github.com/Transport-for-the-North#common-analytical-framework-caf).
 CAF is Transport for the North's structured suite of analytical tools designed to support transport
 modelling, appraisal, and strategic decision-making.
 
