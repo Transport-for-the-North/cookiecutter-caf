@@ -22,7 +22,7 @@ sys.path.insert(0, str(source.absolute()))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "{{ cookiecutter.__readable_name }}"
-copyright = "2025, {{ cookiecutter.author }}"
+copyright = "{{ cookiecutter.__year }}, {{ cookiecutter.author }}"
 author = "{{ cookiecutter.author }}"
 
 # Third Party
