@@ -7,7 +7,7 @@ Quick Start
 
 *{{ cookiecutter.__readable_name }} is provided as a Python package and a command-line utility.
 The command-line utility aims to make some of the commonly used functionality 
-available without needing to use Python code, see :ref:`usage` for details.*
+available without needing to use Python code, see :doc:`usage/index` for details.*
 
 {{ cookiecutter.__readable_name }} can be installed from pip, conda-forge or **pipx
 (when using as a command-line utility).**
@@ -48,7 +48,7 @@ Usage
 .. todo::
     Does {{ cookiecutter.__readable_name }} have a CLI or GUI?
 
-More details can be found in :ref:`tool usage`.
+More details can be found in :doc:`usage/index`.
 
 Python
 ^^^^^^
@@ -62,6 +62,6 @@ When using {{ cookiecutter.__readable_name }} functionality within Python:
 
     import {{ cookiecutter.package_name }}
 
-The :ref:`user guide` contains :ref:`tutorials` and :ref:`code examples`, which
-explain available functionality. For a detailed look at the
-package API see :ref:`API Reference`.
+The :doc:`usage/index` contains :doc:`tutorial` and :doc:`_generated/examples/index`,
+which explain available functionality. For a detailed look at the
+package API see :doc:`api`.

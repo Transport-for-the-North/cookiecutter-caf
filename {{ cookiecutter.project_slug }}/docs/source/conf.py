@@ -61,6 +61,9 @@ templates_path = ["_templates", "_templates/autosummary"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Prefix each section label with the relative document path followed by a colon
+autosectionlabel_prefix_document = True
+
 # -- Options for API summary -------------------------------------------------
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
