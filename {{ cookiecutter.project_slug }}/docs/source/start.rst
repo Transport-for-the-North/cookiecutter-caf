@@ -29,6 +29,18 @@ Pipx
     Does {{ cookiecutter.__readable_name }} support being installed with
     `Pipx <https://pipx.pypa.io/stable/>`__?
 
+`Pipx <https://pipx.pypa.io/stable/>`__ is the recommended way to use {{ cookiecutter.package_name }} as a utility.
+It handles installing the tool in its own container, and makes it easy to access from a terminal.
+
+First install pipx into your default Python environment using pip or conda, see
+`Pipx's installation instructions <https://pipx.pypa.io/latest/how-to/install-pipx.html>`__ for more details.
+
+Once pipx is installed and setup caf.toolkit can be installed using ``pipx install {{ cookiecutter.package_name }}``,
+this should make it available in command-line anywhere using ``{{ cookiecutter.package_name }} ...``.
+
+.. seealso::
+    `Pipx Getting started <https://pipx.pypa.io/latest/tutorial/getting-started.html>`__ for
+    more information about using pipx.
 
 Usage
 -----
