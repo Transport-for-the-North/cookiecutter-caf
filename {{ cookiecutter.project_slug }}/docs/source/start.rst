@@ -35,7 +35,7 @@ It handles installing the tool in its own container, and makes it easy to access
 First install pipx into your default Python environment using pip or conda, see
 `Pipx's installation instructions <https://pipx.pypa.io/latest/how-to/install-pipx.html>`__ for more details.
 
-Once pipx is installed and setup caf.toolkit can be installed using ``pipx install {{ cookiecutter.package_name }}``,
+Once pipx is installed and setup {{ cookiecutter.package_name }} can be installed using ``pipx install {{ cookiecutter.package_name }}``,
 this should make it available in command-line anywhere using ``{{ cookiecutter.package_name }} ...``.
 
 .. seealso::
