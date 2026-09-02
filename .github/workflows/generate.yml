@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   generate:
+    timeout-minutes: 3
     name: Generate Template & Test
     runs-on: ubuntu-latest
     strategy:
