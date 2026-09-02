@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   lint:
-
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
