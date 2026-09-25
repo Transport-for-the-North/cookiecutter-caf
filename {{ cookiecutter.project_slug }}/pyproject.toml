@@ -160,6 +160,7 @@ disable = [
 extension-pkg-allow-list = []
 
 [tool.pylint.main]
+source-roots = ["src"]
 ignore = ["__init__.py", "_version.py"]
 
 [tool.mypy]
