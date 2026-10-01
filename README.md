@@ -37,35 +37,33 @@ This template will ask for some parameters about the project, and will use these
 generation of the project folder. The parameters contain sensible defaults (highlighted in blue
 brackets) which should be used for many of the parameters, the full set of parameters are:
 
-- **Project Name:** name of the project, this can contain any characters but it recommended to
+1. **Project Name:** name of the project, this can contain any characters but it recommended to
   be very few words (ideally one).
-- **CAF package?:** whether this package is a CAF package i.e. should have "caf." prepended to it.
+2. **CAF package?:** whether this package is a CAF package i.e. should have "caf." prepended to it.
   This defaults to not prepending "caf." to the project name.
-- **Full Package Name:** the full "normalised" Python package name, this is generated based on the
+3. **Full Package Name:** the full "normalised" Python package name, this is generated based on the
   project name and in most cases the **generated default should be used**. The generation converts
   the project name to lowercase, replaces spaces with underscores and removes some characters
   which aren't allowed in Python package names.
-- **Full Repository Name:** the full "normalised" git repository name, this is also generated based
+4. **Full Repository Name:** the full "normalised" git repository name, this is also generated based
   on the project name and again the **generated default should be used** in most cases. This
   generation converts the project name to lowercase, replaces spaces with hyphens and remove some
   characters which aren't allowed in repository names.
-- **Author:** the author of the project, this should be Transport for the North (default) for any
+5. **Author:** the author of the project, this should be Transport for the North (default) for any
   projects created for / by TfN staff.
-- **GitHub Organisation Account:** the actual name of the GitHub organisation account, this is
+6. **GitHub Organisation Account:** the actual name of the GitHub organisation account, this is
   generated from the author which should be left as default for TfN projects. The generation is done
   by converting the author to lowercase, replacing spaces with hyphens and removing any invalid
   characters, this should be be checked against the GitHub account name the repository will be
   stored on.
-- **GitHub Source Code URL:** the full URL of the GitHub repository where the project should be
+7. **GitHub Source Code URL:** the full URL of the GitHub repository where the project should be
   stored, this is generated from the GitHub organisation account and the repository name. This
   URL should be checked against GitHub and manually input if required.
-- **Project Maintainers:** the name(s) of the project maintainers with their GitHub username in
-  brackets, if providing multiple names these should be separated with semi-colons.
-- **Package Description:** short description of the package, will be included in the generated
+8. **Package Description:** short description of the package, will be included in the generated
   README and the package metadata.
-- **Initialise Git Repository:** if y(es) will initialise the folder as a local git repository,
+9. **Initialise Git Repository:** if y(es) will initialise the folder as a local git repository,
   this will not create the repository on GitHub. *This is recommended to be enabled.*
-- **Push Repository to GitHub:** if y(es) will push (upload) the local git repository to a GitHub
+10. **Push Repository to GitHub:** if y(es) will push (upload) the local git repository to a GitHub
   repository, an empty GitHub repository must exist at the correct URL or this will fail.
 
 > **Note:** the [git](https://git-scm.com/) command-line utility is required for the
@@ -185,7 +183,6 @@ listed and detail below:
 
 - `pyproject.toml` - A file of settings and metadata for the package. This file details how to
   build the package and defines common linter tool setup.
-- `RELEASE.md` - A standard file explaining the versions system.
 - `requirements.txt` - Details the packages and their versions that this package depends on. It's a
   list of the python packages which must be installed for this package to work. Update this file
   as your package gains dependencies.
@@ -193,6 +190,10 @@ listed and detail below:
   testing and linting. These are extra dependencies on top of the `requirements.txt` ones. This is
   used by package tools to ensure your tests pass when you say they should! This file likely doesn't
   need changing very often.
+- `LICENSE` - The license file for the repository, this is GPLv3 initialially but should be reviewed
+  before publishing the repository. Speak to the
+  [CAF Admins team](https://github.com/orgs/Transport-for-the-North/teams/caf-admins)
+  for more information on licenses and publishing.
 
 ### VersioningIt
 
@@ -265,9 +266,6 @@ A new project can be setup on readthedocs.org by creating an account linked to G
 selecting [Add project](https://app.readthedocs.org/dashboard/import/), choosing a
 repository and configuring some settings. Once setup read the docs should automatically
 build the documentation for any GitHub releases and the main branch.
-
-There's also a `documentation-links.yml` workflow which runs on pull requests to link
-to a preview of the documentation for that pull request.
 
 > [!ATTENTION]
 > For any TfN repositories publishing documentation should be discussed with the
