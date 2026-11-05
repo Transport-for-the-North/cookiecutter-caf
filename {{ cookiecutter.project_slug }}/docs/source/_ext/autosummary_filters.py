@@ -31,7 +31,22 @@ def include_member(
     exclude_names: Collection[str] | None = None,
     include_names: Collection[str] | None = None,
 ) -> bool:
-    """Include a named class (or module) member based soley on it's name."""
+    """Include a named class (or module) member based soley on it's name.
+
+    Parameters
+    ----------
+    value
+        Name of the object.
+    private
+        Whether to include private (or protected) objects,
+        any starting with an underscore, e.g. `_function`.
+    special
+        Whether to include special (dunder) objects, e.g. `__init__`.
+    exclude_names
+        Specific names to exclude, returns false if value matches.
+    include_names : Collection[str] | None, optional
+        Specific names to include, returns true if value matches.
+    """
     if include_names is not None and value in include_names:
         return True
     if exclude_names is not None and value in exclude_names:
