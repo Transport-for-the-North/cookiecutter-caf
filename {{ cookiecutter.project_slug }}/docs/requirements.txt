@@ -1,6 +1,6 @@
 # Required libraries
 sphinx>=9.0
 pydata-sphinx-theme>=0.23.0
-graphviz>=14.1
+graphviz>=0.21
 sphinx-gallery>=0.22.1
 matplotlib # required by sphinx-gallery
