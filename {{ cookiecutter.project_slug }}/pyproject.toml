@@ -7,7 +7,8 @@ name = "{{ cookiecutter.package_name }}"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 description = "{{ cookiecutter.description }}"
 readme = "README.md"
-license = { "file" = "LICENSE" }
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 authors = [{ name = "{{ cookiecutter.author }}" }]
 classifiers = [
